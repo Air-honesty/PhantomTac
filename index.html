@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhantomTac Project</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+    </style>
+</head>
+<body class="bg-white text-gray-800 leading-relaxed">
+
+    <nav class="bg-gray-100 border-b border-gray-200 px-6 py-4 fixed w-full top-0 z-50">
+        <div class="max-w-5xl mx-auto flex justify-between items-center">
+            <div class="text-xl font-semibold text-gray-700">PhantomTac Project</div>
+            <div class="hidden md:flex space-x-6 text-sm text-gray-600">
+                <a href="#abstract" class="hover:text-blue-600">Abstract</a>
+                <a href="#features" class="hover:text-blue-600">Attack Vectors</a>
+                <a href="#demos" class="hover:text-blue-600">Impacts</a>
+                <a href="#qa" class="hover:text-blue-600">Q&A</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="pt-32 pb-12 px-6 text-center max-w-5xl mx-auto">
+        <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-tight">
+            PhantomTac: Hijacking Robotic Tactile Systems with Deploy-and-forget Tags 
+        </h1>
+        <div class="text-lg text-gray-700 mb-2">
+            Anonymous Author(s) 
+        </div>
+        <div class="text-md text-gray-500 italic mb-6">
+            Under Submission
+        </div>
+        <div class="inline-block bg-blue-100 text-blue-800 px-4 py-1 rounded-full font-semibold text-sm">
+            CCS 2026, The Hague, Netherlands 
+        </div>
+    </header>
+
+    <div class="max-w-4xl mx-auto px-6 pb-20 space-y-16">
+
+        <section id="abstract">
+            <h2 class="text-2xl font-bold border-b-2 border-gray-200 pb-2 mb-4">Abstract</h2>
+            <p class="text-gray-700 text-justify mb-4">
+                Tactile perception is crucial for precise robotic manipulation and robotic arm grasping, providing an important foundation for dexterous, closed-loop force control. In this study, we discover a physical loophole called <strong>PhantomTac</strong> in magnetic tactile sensors. The attacker can alter the magnetic field, thus spoofing the force interpreted by magnetic tactile sensors.
+            </p>
+            <p class="text-gray-700 text-justify mb-4">
+                The attacker can stealthily deploy such an attack by simply attaching a thin (the thickness is around 0.2 mm), battery-free magnetic tag to the surface of an object. Hence, the attack tag can be easily concealed by a barcode sticker. Such an attack scheme is "deploy-and-forget" - the attacker can deploy the tag and leave. 
+            </p>
+            <p class="text-gray-700 text-justify">
+                When a robotic hand is picking up an object, it may severely damage the object. Specifically, spoofing the normal force can crush the object, whereas shear force spoofing can lead to a loose grip, thus dropping the object. End-to-end evaluations demonstrate an attack success rate exceeding 95% with a grasping error of less than 8 mm.
+            </p>
+        </section>
+
+        <section id="features">
+            <h2 class="text-2xl font-bold border-b-2 border-gray-200 pb-2 mb-4">Core Attack Vectors</h2>
+            <p class="text-lg text-blue-600 font-semibold mb-6 text-center">
+                —— A highly stealthy, passive physical-layer attack.
+            </p>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 shadow-sm">
+                    <h3 class="font-bold text-lg mb-2">1. Normal Force Injection</h3>
+                    <p class="text-sm text-gray-600">Through the designed passive magnetic tags, the attacker injects spoofed normal force signals into the magnetic tactile sensor, causing the system to continuously receive erroneous contact force feedback.</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 shadow-sm">
+                    <h3 class="font-bold text-lg mb-2">2. Shear Force Spoofing</h3>
+                    <p class="text-sm text-gray-600">The attacker pre-injects spoofed shear force signals into the sensor and constructs steep spatial shear force gradient regions to counter dynamic algorithms.</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 shadow-sm">
+                    <h3 class="font-bold text-lg mb-2">3. High Stealthiness (NLOS)</h3>
+                    <p class="text-sm text-gray-600">PhantomTac utilizes micro-passive permanent magnets (with a thickness of 0.5 mm). The magnetic field can penetrate non-ferromagnetic materials, allowing tags to be hidden under normal labels.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="demos">
+            <h2 class="text-2xl font-bold border-b-2 border-gray-200 pb-2 mb-6">End-to-End Impacts</h2>
+            
+            <div class="mb-10">
+                <h3 class="text-xl font-semibold mb-2">Impact Ⅰ：Crushing (Over-Force)</h3>
+                <p class="text-gray-600 mb-4">Negative injection will cause the robotic arm to continue tightening even after reaching the safe grasping threshold, ultimately leading to object deformation and damage due to excessive grasping force.</p>
+                <div class="aspect-video bg-gray-200 flex items-center justify-center text-gray-400 rounded-lg max-w-2xl mx-auto">[ Video Placeholder: Robotic Arm Crushing Fragile Object ]</div>
+            </div>
+
+            <div class="mb-10">
+                <h3 class="text-xl font-semibold mb-2">Impact Ⅱ：Dropping (Under-Force)</h3>
+                <p class="text-gray-600 mb-4">Positive injection will induce the robotic arm to prematurely terminate the program before reaching the predetermined grasping force, resulting in the object falling and being damaged.</p>
+                <div class="aspect-video bg-gray-200 flex items-center justify-center text-gray-400 rounded-lg max-w-2xl mx-auto">[ Video Placeholder: Object Dropping During Transit ]</div>
+            </div>
+
+            <div class="mb-10">
+                <h3 class="text-xl font-semibold mb-2">Impact Ⅲ：Collision / Confusion</h3>
+                <p class="text-gray-600 mb-4">When the robot operates in blind spots, its collision detection system is interfered with, rendering it unable to normally perceive collision risks, which consequently leads to the destruction of surrounding objects.</p>
+            </div>
+        </section>
+
+        <section id="qa">
+            <h2 class="text-2xl font-bold border-b-2 border-gray-200 pb-2 mb-4">Q & A</h2>
+            <div class="space-y-4">
+                <div>
+                    <h4 class="font-bold text-gray-800">Q1: Which tactile sensors are affected by this vulnerability?</h4>
+                    <p class="text-gray-600 mt-1">A: We conducted extensive reverse engineering research on commercial COTS magnetic tactile sensors (such as PX6AX-GEN3-MC-M2020-Elite and Xela uSPa 46).</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-gray-800">Q2: Can existing visual monitoring detect these tags?</h4>
+                    <p class="text-gray-600 mt-1">A: It is highly difficult. The maliciously deployed magnetic tags can effectively blend with conventional legitimate labels (like barcode stickers) in terms of visual features. We selected miniature magnets with a thickness of 0.5 mm , which causes almost no changes to the visual appearance of the target object.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-gray-100 p-6 rounded-lg">
+            <h2 class="text-xl font-bold mb-4">Cite Our Paper</h2>
+            <pre class="bg-gray-800 text-gray-100 p-4 rounded text-sm overflow-x-auto">
+@inproceedings{phantomtac2026,
+  title={PhantomTac: Hijacking Robotic Tactile Systems with Deploy-and-forget Tags},
+  author={Anonymous},
+  booktitle={Proceedings of the 2026 ACM SIGSAC Conference on Computer and Communications Security (CCS)},
+  year={2026},
+  address={The Hague, Netherlands}
+}
+            </pre>
+        </section>
+    </div>
+
+</body>
+</html>
