@@ -232,9 +232,9 @@
     }
 
     .demo-video-frame {
-      aspect-ratio: 16 / 9;
+      aspect-ratio: 4 / 3;
       width: 100%;
-      background: #ffffff;
+      background: #000000;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -244,7 +244,7 @@
     .demo-video {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
       display: none;
       background: #000000;
     }
@@ -627,7 +627,7 @@
             <span class="text-muted transition group-open:rotate-45">+</span>
           </summary>
           <p class="mt-3 leading-7 text-muted">
-            PhantomTac may introduce a slight protrusion because it deploys small magnets.In theory, existing visual inspection systems could detect such protrusions. However, deploying such a visual inspection system would be extremely costly.
+            PhantomTac may introduce a slight protrusion because it deploys small magnets. In theory, existing visual inspection systems could detect such protrusions. However, deploying such a visual inspection system would be extremely costly.
           </p>
         </details>
 
@@ -643,14 +643,13 @@
 
         <details class="group py-5">
           <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-bold">
-            How to defense against PhantomTac?
+            How to defend against PhantomTac?
             <span class="text-muted transition group-open:rotate-45">+</span>
           </summary>
           <p class="mt-3 leading-7 text-muted">
             A basic defense is to cross-check tactile readings with independent robot proprioceptive signals, such as joint torques, gripper motor currents, end-effector motion, and gripper velocity. Real contact should cause consistent changes across these signals. If the tactile sensor reports contact without corresponding motion or load changes, the system can flag it as false contact. Conversely, if proprioceptive signals indicate contact while tactile readings remain low, the system can stop further force increase or enter a safe recovery mode.
           </p>
         </details>
-        
       </div>
     </section>
 
