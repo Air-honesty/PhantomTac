@@ -36,23 +36,23 @@
     }
 
     .hero-logo-wrap {
-      margin: 0 auto 2rem auto;
+      margin: 0 auto 1.25rem auto;
       display: flex;
       justify-content: center;
       align-items: center;
     }
 
     .hero-logo {
-      max-width: min(560px, 90vw);
-      max-height: 150px;
+      max-width: min(760px, 96vw);
+      max-height: 220px;
       width: auto;
       height: auto;
       object-fit: contain;
     }
 
     .logo-placeholder {
-      width: min(560px, 90vw);
-      min-height: 120px;
+      width: min(760px, 96vw);
+      min-height: 180px;
       border: 1px dashed #cbd5e1;
       border-radius: 1.5rem;
       background: rgba(255, 255, 255, 0.72);
@@ -321,7 +321,13 @@
       }
 
       .logo-placeholder {
-        min-height: 96px;
+        width: min(96vw, 100%);
+        min-height: 120px;
+      }
+
+      .hero-logo {
+        max-width: 96vw;
+        max-height: 150px;
       }
 
       .sensor-figure-grid {
