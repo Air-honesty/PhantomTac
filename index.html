@@ -50,7 +50,7 @@
     }
 
     .section-heading {
-      margin-bottom: 1.75rem;
+      margin-bottom: 1.5rem;
     }
 
     .section-heading h2 {
@@ -59,16 +59,17 @@
       font-weight: 900;
       letter-spacing: -0.025em;
       color: #0f172a;
-      margin: 0;
     }
 
-    .heading-divider {
+    .title-line {
+      width: 100%;
+      height: 1px;
       margin-top: 1rem;
-      border-top: 1px solid #e2e8f0;
+      margin-bottom: 1rem;
+      background: #e2e8f0;
     }
 
     .section-intro {
-      margin-top: 1rem;
       max-width: 48rem;
       color: #475569;
       line-height: 1.75rem;
@@ -106,7 +107,6 @@
 </head>
 
 <body class="bg-paper text-ink antialiased">
-  <!-- Navigation -->
   <nav class="glass fixed inset-x-0 top-0 z-50 border-b border-line">
     <div class="mx-auto flex max-w-6xl items-center justify-between px-5 py-3">
       <a href="#top" class="flex items-center gap-3 font-semibold tracking-tight text-ink">
@@ -129,7 +129,6 @@
     </div>
   </nav>
 
-  <!-- Hero -->
   <header id="top" class="relative overflow-hidden pt-28">
     <div class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,_rgba(37,99,235,0.16),_transparent_35%),radial-gradient(circle_at_top_right,_rgba(14,165,233,0.14),_transparent_30%)]"></div>
 
@@ -141,24 +140,14 @@
       <p class="mx-auto mt-6 max-w-4xl text-lg leading-8 text-muted">
         This page provides the anonymized artifact package, raw datasets, source code, and demo materials for evaluating PhantomTac, a passive physical-layer attack against magnetic tactile sensing systems.
       </p>
-
-      <div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-        <a href="#datasets" class="inline-flex items-center justify-center rounded-2xl bg-accent px-6 py-3 font-semibold text-white shadow-soft transition hover:bg-accentDark">
-          Download datasets & code
-        </a>
-        <a href="#demos" class="inline-flex items-center justify-center rounded-2xl border border-line bg-white px-6 py-3 font-semibold text-ink transition hover:border-accent hover:text-accent">
-          Watch demo videos
-        </a>
-      </div>
     </div>
   </header>
 
   <main class="mx-auto max-w-6xl px-5 pb-24">
-    <!-- Abstract -->
     <section id="abstract" class="section-card">
       <div class="section-heading">
         <h2>Abstract</h2>
-        <div class="heading-divider"></div>
+        <div class="title-line"></div>
       </div>
 
       <div class="space-y-5 text-justify text-base leading-8 text-slate-700">
@@ -176,11 +165,10 @@
       </div>
     </section>
 
-    <!-- Magnetic tactile sensors -->
     <section id="magnetic-tactile-sensors" class="section-card">
       <div class="section-heading">
         <h2>Magnetic tactile sensors</h2>
-        <div class="heading-divider"></div>
+        <div class="title-line"></div>
         <p class="section-intro">
           Magnetic tactile sensors are an emerging tactile sensing modality for robotic manipulation. They usually embed small magnets inside a soft elastomer and use magnetic field sensors to infer deformation and contact forces.
         </p>
@@ -210,11 +198,10 @@
       </div>
     </section>
 
-    <!-- Overview -->
     <section id="overview" class="section-card">
       <div class="section-heading">
         <h2>Attack overview</h2>
-        <div class="heading-divider"></div>
+        <div class="title-line"></div>
         <p class="section-intro">
           PhantomTac is organized around three attack vectors and their physical impacts on robotic manipulation.
         </p>
@@ -247,11 +234,10 @@
       </div>
     </section>
 
-    <!-- Demos -->
     <section id="demos" class="section-card">
       <div class="section-heading">
         <h2>End-to-end impacts</h2>
-        <div class="heading-divider"></div>
+        <div class="title-line"></div>
         <p class="section-intro">
           The following demo materials show representative physical consequences caused by spoofed tactile feedback.
         </p>
@@ -310,11 +296,10 @@
       </div>
     </section>
 
-    <!-- Q&A -->
     <section id="qa" class="section-card">
       <div class="section-heading">
         <h2>Q&A</h2>
-        <div class="heading-divider"></div>
+        <div class="title-line"></div>
       </div>
 
       <div class="divide-y divide-line">
@@ -360,11 +345,10 @@
       </div>
     </section>
 
-    <!-- Datasets and source code -->
     <section id="datasets" class="section-card">
       <div class="section-heading">
         <h2>Datasets & source code</h2>
-        <div class="heading-divider"></div>
+        <div class="title-line"></div>
         <p class="section-intro">
           The following files are provided for artifact review. Click each card to directly download the corresponding raw dataset, processed result, or source code.
         </p>
