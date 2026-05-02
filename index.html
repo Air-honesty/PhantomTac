@@ -190,6 +190,67 @@
       font-weight: 800;
     }
 
+    .demo-group {
+      margin-top: 2rem;
+    }
+
+    .demo-group:first-of-type {
+      margin-top: 0;
+    }
+
+    .demo-group-title {
+      margin-bottom: 1rem;
+      font-size: 1.125rem;
+      line-height: 1.75rem;
+      font-weight: 900;
+      color: #0f172a;
+    }
+
+    .demo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .demo-card {
+      overflow: hidden;
+      border: 1px solid #e2e8f0;
+      border-radius: 1.5rem;
+      background: #ffffff;
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+    }
+
+    .demo-video-frame {
+      aspect-ratio: 16 / 9;
+      width: 100%;
+      background: #f1f5f9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .demo-video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: none;
+      background: #000000;
+    }
+
+    .demo-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      text-align: center;
+      color: #64748b;
+      font-size: 0.82rem;
+      line-height: 1.55;
+    }
+
     .section-card {
       scroll-margin-top: 6rem;
       margin-top: 4rem;
@@ -264,6 +325,10 @@
       }
 
       .sensor-figure-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .demo-grid {
         grid-template-columns: 1fr;
       }
     }
@@ -415,60 +480,96 @@
         <h2>End-to-end impacts</h2>
         <div class="title-line"></div>
         <p class="section-intro">
-          The following demo materials show representative physical consequences caused by spoofed tactile feedback.
+          The following six demo videos show representative physical consequences caused by spoofed tactile feedback. The first group contains robotic-arm experiments, and the second group contains robot experiments.
         </p>
       </div>
 
-      <div class="grid gap-6 lg:grid-cols-2">
-        <article class="overflow-hidden rounded-3xl border border-line bg-white shadow-sm">
-          <div class="aspect-video bg-slate-100">
-            <video class="h-full w-full" src="demo1.mp4" controls preload="metadata" poster="微信图片_20260427221856_402_12.jpg">
-              Your browser does not support the video tag.
-            </video>
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold">Impact I: Crushing caused by over-force grasping</h3>
-            <p class="mt-3 leading-7 text-muted">
-              Spoofed tactile feedback can make the gripper continue tightening after safe contact should have been detected, leading to object deformation or damage.
-            </p>
-          </div>
-        </article>
+      <div class="demo-group">
+        <h3 class="demo-group-title">Robotic arm experiments</h3>
+        <div class="demo-grid">
+          <article class="demo-card">
+            <div class="demo-video-frame">
+              <video class="demo-video" src="assets/videos/arm-demo-1.mp4" controls preload="metadata" onloadeddata="this.style.display='block'; this.nextElementSibling.style.display='none';" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"></video>
+              <div class="demo-placeholder">Video placeholder<br />Upload to <strong>assets/videos/arm-demo-1.mp4</strong></div>
+            </div>
+            <div class="p-5">
+              <h4 class="text-base font-bold">Arm demo I: Over-force grasping</h4>
+              <p class="mt-2 text-sm leading-6 text-muted">
+                Spoofed tactile feedback causes the gripper to apply excessive force during object grasping.
+              </p>
+            </div>
+          </article>
 
-        <article class="overflow-hidden rounded-3xl border border-line bg-white shadow-sm">
-          <div class="flex aspect-video items-center justify-center bg-slate-100 px-6 text-center text-sm font-medium text-slate-400">
-            Add another video file, then replace this placeholder.
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold">Impact II: Dropping caused by under-force grasping</h3>
-            <p class="mt-3 leading-7 text-muted">
-              False force readings may cause the controller to terminate the grasping action too early, resulting in an unstable grasp and object dropping.
-            </p>
-          </div>
-        </article>
+          <article class="demo-card">
+            <div class="demo-video-frame">
+              <video class="demo-video" src="assets/videos/arm-demo-2.mp4" controls preload="metadata" onloadeddata="this.style.display='block'; this.nextElementSibling.style.display='none';" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"></video>
+              <div class="demo-placeholder">Video placeholder<br />Upload to <strong>assets/videos/arm-demo-2.mp4</strong></div>
+            </div>
+            <div class="p-5">
+              <h4 class="text-base font-bold">Arm demo II: Unstable grasping</h4>
+              <p class="mt-2 text-sm leading-6 text-muted">
+                False force readings make the robotic arm terminate or adjust grasping incorrectly.
+              </p>
+            </div>
+          </article>
 
-        <article class="overflow-hidden rounded-3xl border border-line bg-white shadow-sm">
-          <div class="flex aspect-video items-center justify-center bg-slate-100 px-6 text-center text-sm font-medium text-slate-400">
-            Add another video file, then replace this placeholder.
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold">Impact III: False contact on robotic hand</h3>
-            <p class="mt-3 leading-7 text-muted">
-              A tactile system may report contact before physical interaction, causing premature withdrawal or unexpected manipulation behavior.
-            </p>
-          </div>
-        </article>
+          <article class="demo-card">
+            <div class="demo-video-frame">
+              <video class="demo-video" src="assets/videos/arm-demo-3.mp4" controls preload="metadata" onloadeddata="this.style.display='block'; this.nextElementSibling.style.display='none';" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"></video>
+              <div class="demo-placeholder">Video placeholder<br />Upload to <strong>assets/videos/arm-demo-3.mp4</strong></div>
+            </div>
+            <div class="p-5">
+              <h4 class="text-base font-bold">Arm demo III: Object damage or drop</h4>
+              <p class="mt-2 text-sm leading-6 text-muted">
+                Manipulated tactile signals lead to visible manipulation failures on the robotic-arm platform.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
 
-        <article class="overflow-hidden rounded-3xl border border-line bg-white shadow-sm">
-          <div class="flex aspect-video items-center justify-center bg-slate-100 px-6 text-center text-sm font-medium text-slate-400">
-            Add another video file, then replace this placeholder.
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold">Impact IV: Collision or environmental disturbance</h3>
-            <p class="mt-3 leading-7 text-muted">
-              Misleading tactile feedback can interfere with safe interaction policies and cause unintended contact with surrounding objects.
-            </p>
-          </div>
-        </article>
+      <div class="demo-group">
+        <h3 class="demo-group-title">Robot experiments</h3>
+        <div class="demo-grid">
+          <article class="demo-card">
+            <div class="demo-video-frame">
+              <video class="demo-video" src="assets/videos/robot-demo-1.mp4" controls preload="metadata" onloadeddata="this.style.display='block'; this.nextElementSibling.style.display='none';" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"></video>
+              <div class="demo-placeholder">Video placeholder<br />Upload to <strong>assets/videos/robot-demo-1.mp4</strong></div>
+            </div>
+            <div class="p-5">
+              <h4 class="text-base font-bold">Robot demo I: False contact</h4>
+              <p class="mt-2 text-sm leading-6 text-muted">
+                The tactile system reports contact before real physical interaction occurs.
+              </p>
+            </div>
+          </article>
+
+          <article class="demo-card">
+            <div class="demo-video-frame">
+              <video class="demo-video" src="assets/videos/robot-demo-2.mp4" controls preload="metadata" onloadeddata="this.style.display='block'; this.nextElementSibling.style.display='none';" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"></video>
+              <div class="demo-placeholder">Video placeholder<br />Upload to <strong>assets/videos/robot-demo-2.mp4</strong></div>
+            </div>
+            <div class="p-5">
+              <h4 class="text-base font-bold">Robot demo II: Premature withdrawal</h4>
+              <p class="mt-2 text-sm leading-6 text-muted">
+                Spoofed tactile force causes the robot to withdraw or change its action unexpectedly.
+              </p>
+            </div>
+          </article>
+
+          <article class="demo-card">
+            <div class="demo-video-frame">
+              <video class="demo-video" src="assets/videos/robot-demo-3.mp4" controls preload="metadata" onloadeddata="this.style.display='block'; this.nextElementSibling.style.display='none';" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"></video>
+              <div class="demo-placeholder">Video placeholder<br />Upload to <strong>assets/videos/robot-demo-3.mp4</strong></div>
+            </div>
+            <div class="p-5">
+              <h4 class="text-base font-bold">Robot demo III: Environmental disturbance</h4>
+              <p class="mt-2 text-sm leading-6 text-muted">
+                Misleading tactile feedback causes unsafe interaction with surrounding objects.
+              </p>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
 
