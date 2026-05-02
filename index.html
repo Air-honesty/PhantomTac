@@ -123,6 +123,84 @@
       text-align: center;
     }
 
+    .overview-figure-card {
+      border: 1px solid #e2e8f0;
+      border-radius: 1.5rem;
+      background: #f8fafc;
+      padding: 1rem;
+      overflow: hidden;
+    }
+
+    .overview-figure-frame {
+      aspect-ratio: 16 / 9;
+      width: 100%;
+      border-radius: 1rem;
+      background: #ffffff;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .overview-figure {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: none;
+      background: #ffffff;
+    }
+
+    .overview-placeholder {
+      width: 100%;
+      height: 100%;
+      border: 1px dashed #cbd5e1;
+      border-radius: 1rem;
+      color: #64748b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      background: rgba(255, 255, 255, 0.8);
+    }
+
+    .overview-caption {
+      margin-top: 1rem;
+      color: #475569;
+      font-size: 0.98rem;
+      line-height: 1.7;
+      text-align: center;
+    }
+
+    .scenario-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .scenario-card {
+      border: 1px solid #e2e8f0;
+      border-radius: 1.25rem;
+      background: #f8fafc;
+      padding: 1.25rem;
+    }
+
+    .scenario-index {
+      display: inline-flex;
+      width: 2.25rem;
+      height: 2.25rem;
+      align-items: center;
+      justify-content: center;
+      border-radius: 0.9rem;
+      background: #eff6ff;
+      color: #2563eb;
+      font-weight: 900;
+      margin-bottom: 1rem;
+    }
+
     .section-card {
       scroll-margin-top: 6rem;
       margin-top: 4rem;
@@ -197,6 +275,10 @@
       }
 
       .sensor-figure-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .scenario-grid {
         grid-template-columns: 1fr;
       }
     }
@@ -313,33 +395,58 @@
       <div class="section-heading">
         <h2>Attack overview</h2>
         <div class="title-line"></div>
-        <p class="section-intro">
-          PhantomTac is organized around three attack vectors and their physical impacts on robotic manipulation.
-        </p>
       </div>
 
-      <div class="grid gap-5 md:grid-cols-3">
-        <article class="info-card transition hover:-translate-y-1 hover:shadow-soft">
-          <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-50 text-xl font-black text-blue-700">1</div>
-          <h3 class="text-xl font-bold">Normal force injection</h3>
-          <p class="mt-3 leading-7 text-muted">
-            A passive tag induces a false normal-force response, causing the controller to receive incorrect contact-force feedback.
+      <article class="overview-figure-card">
+        <div class="overview-figure-frame">
+          <img
+            src="assets/phantomtac-attack-overview.png"
+            alt="PhantomTac attack overview"
+            class="overview-figure"
+            onload="this.style.display='block'; this.nextElementSibling.style.display='none';"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          />
+          <div class="overview-placeholder">
+            Attack overview image placeholder<br />
+            Upload to <strong>assets/phantomtac-attack-overview.png</strong>
+          </div>
+        </div>
+      </article>
+
+      <p class="overview-caption">
+        PhantomTac uses a passive magnetic tag to perturb the magnetic field around a tactile sensor, thereby spoofing tactile feedback and hijacking closed-loop robotic manipulation.
+      </p>
+
+      <div class="scenario-grid">
+        <article class="scenario-card">
+          <span class="scenario-index">1</span>
+          <h3 class="text-lg font-bold">Stealthy tag deployment</h3>
+          <p class="mt-3 text-sm leading-6 text-muted">
+            The attacker attaches a thin, battery-free magnetic tag to the target object and hides it under an ordinary sticker or label.
           </p>
         </article>
 
-        <article class="info-card transition hover:-translate-y-1 hover:shadow-soft">
-          <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-sky-50 text-xl font-black text-sky-700">2</div>
-          <h3 class="text-xl font-bold">Shear force spoofing</h3>
-          <p class="mt-3 leading-7 text-muted">
-            Spatially varying magnetic fields create spoofed shear-force patterns, which can mislead dynamic tactile interpretation.
+        <article class="scenario-card">
+          <span class="scenario-index">2</span>
+          <h3 class="text-lg font-bold">Magnetic-field perturbation</h3>
+          <p class="mt-3 text-sm leading-6 text-muted">
+            When the robot touches the tagged object, the tag changes the local magnetic field measured by the tactile sensor.
           </p>
         </article>
 
-        <article class="info-card transition hover:-translate-y-1 hover:shadow-soft">
-          <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-indigo-50 text-xl font-black text-indigo-700">3</div>
-          <h3 class="text-xl font-bold">Stealthy deployment</h3>
-          <p class="mt-3 leading-7 text-muted">
-            The tag is passive and thin enough to be hidden under common non-ferromagnetic covers, such as stickers or labels.
+        <article class="scenario-card">
+          <span class="scenario-index">3</span>
+          <h3 class="text-lg font-bold">False tactile feedback</h3>
+          <p class="mt-3 text-sm leading-6 text-muted">
+            The sensor reports spoofed normal or shear forces, causing the controller to make incorrect manipulation decisions.
+          </p>
+        </article>
+
+        <article class="scenario-card">
+          <span class="scenario-index">4</span>
+          <h3 class="text-lg font-bold">Physical manipulation impact</h3>
+          <p class="mt-3 text-sm leading-6 text-muted">
+            The robot may crush, drop, falsely contact, or collide with objects due to the manipulated tactile feedback.
           </p>
         </article>
       </div>
