@@ -47,12 +47,13 @@
         <a class="hover:text-accent" href="#abstract">Abstract</a>
         <a class="hover:text-accent" href="#overview">Overview</a>
         <a class="hover:text-accent" href="#artifact">Artifact</a>
+        <a class="hover:text-accent" href="#datasets">Datasets</a>
         <a class="hover:text-accent" href="#demos">Demos</a>
         <a class="hover:text-accent" href="#reproduce">Reproduce</a>
         <a class="hover:text-accent" href="#qa">Q&A</a>
       </div>
-      <a href="#artifact" class="rounded-full bg-ink px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-accentDark">
-        View files
+      <a href="#datasets" class="rounded-full bg-ink px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-accentDark">
+        Download
       </a>
     </div>
   </nav>
@@ -71,14 +72,14 @@
           PhantomTac: Hijacking Robotic Tactile Systems with Deploy-and-forget Tags
         </h1>
         <p class="mt-6 max-w-3xl text-lg leading-8 text-muted">
-          This page provides the anonymized artifact package, demo materials, and reproduction notes for evaluating PhantomTac, a passive physical-layer attack against magnetic tactile sensing systems.
+          This page provides the anonymized artifact package, raw datasets, source code, demo materials, and reproduction notes for evaluating PhantomTac, a passive physical-layer attack against magnetic tactile sensing systems.
         </p>
         <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-          <a href="#demos" class="inline-flex items-center justify-center rounded-2xl bg-accent px-6 py-3 font-semibold text-white shadow-soft transition hover:bg-accentDark">
-            Watch demo videos
+          <a href="#datasets" class="inline-flex items-center justify-center rounded-2xl bg-accent px-6 py-3 font-semibold text-white shadow-soft transition hover:bg-accentDark">
+            Download datasets & code
           </a>
-          <a href="#reproduce" class="inline-flex items-center justify-center rounded-2xl border border-line bg-white px-6 py-3 font-semibold text-ink transition hover:border-accent hover:text-accent">
-            Reproduction guide
+          <a href="#demos" class="inline-flex items-center justify-center rounded-2xl border border-line bg-white px-6 py-3 font-semibold text-ink transition hover:border-accent hover:text-accent">
+            Watch demo videos
           </a>
         </div>
       </div>
@@ -171,7 +172,7 @@
         <p class="text-sm font-bold uppercase tracking-wide text-accent">What is included</p>
         <h2 class="mt-2 text-3xl font-black tracking-tight">Artifact package</h2>
         <p class="mt-4 leading-7 text-muted">
-          The repository provides materials for reviewing the implementation, reproduced data processing, and end-to-end demonstrations.
+          The repository provides materials for reviewing the implementation, reproducing data processing, and checking end-to-end demonstrations.
         </p>
       </div>
       <div class="grid gap-4 md:grid-cols-2">
@@ -191,6 +192,152 @@
           <h3 class="font-bold">End-to-end demos</h3>
           <p class="mt-2 text-sm leading-6 text-muted">Videos showing representative attack outcomes on robotic manipulation platforms.</p>
         </div>
+      </div>
+    </section>
+
+    <!-- Datasets and source code -->
+    <section id="datasets" class="scroll-mt-24 mt-16 rounded-3xl border border-line bg-white p-7 shadow-sm md:p-10">
+      <div class="mb-8 max-w-3xl">
+        <p class="text-sm font-bold uppercase tracking-wide text-accent">Downloadable materials</p>
+        <h2 class="mt-2 text-3xl font-black tracking-tight">Datasets & source code</h2>
+        <p class="mt-4 leading-7 text-muted">
+          The following files are provided for artifact review. Click each card to directly download the corresponding raw dataset, processed result, or reproduction script.
+        </p>
+      </div>
+
+      <div class="mb-8 rounded-2xl border border-blue-100 bg-blue-50 p-5 text-sm leading-6 text-blue-900">
+        <strong>Repository layout expected by this page:</strong>
+        place datasets under <code class="rounded bg-white px-1.5 py-0.5">data/</code> and source code under <code class="rounded bg-white px-1.5 py-0.5">src/</code>. If your file names are different, only modify the <code class="rounded bg-white px-1.5 py-0.5">href</code> and <code class="rounded bg-white px-1.5 py-0.5">download</code> fields below.
+      </div>
+
+      <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        <!-- Raw datasets -->
+        <a href="data/paxini_palm_raw.csv" download="paxini_palm_raw.csv" class="group block rounded-3xl border border-line bg-slate-50 p-6 transition hover:-translate-y-1 hover:border-accent hover:bg-blue-50 hover:shadow-soft">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <p class="text-xs font-bold uppercase tracking-wide text-accent">Raw dataset</p>
+              <h3 class="mt-2 text-lg font-black text-ink">PaXini palm raw traces</h3>
+            </div>
+            <span class="rounded-full bg-white px-3 py-1 text-xs font-bold text-muted shadow-sm">CSV</span>
+          </div>
+          <p class="mt-3 text-sm leading-6 text-muted">
+            Raw tactile responses collected from the PaXini palm tactile sensor under magnetic interference.
+          </p>
+          <p class="mt-5 text-sm font-bold text-accent">Download →</p>
+        </a>
+
+        <a href="data/xela_uspa46_raw.csv" download="xela_uspa46_raw.csv" class="group block rounded-3xl border border-line bg-slate-50 p-6 transition hover:-translate-y-1 hover:border-accent hover:bg-blue-50 hover:shadow-soft">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <p class="text-xs font-bold uppercase tracking-wide text-accent">Raw dataset</p>
+              <h3 class="mt-2 text-lg font-black text-ink">XELA uSPa 46 raw traces</h3>
+            </div>
+            <span class="rounded-full bg-white px-3 py-1 text-xs font-bold text-muted shadow-sm">CSV</span>
+          </div>
+          <p class="mt-3 text-sm leading-6 text-muted">
+            Raw tactile responses collected from the XELA uSPa 46 sensor under magnetic sources.
+          </p>
+          <p class="mt-5 text-sm font-bold text-accent">Download →</p>
+        </a>
+
+        <a href="data/paxini_fingertip_fingerpad_validation.csv" download="paxini_fingertip_fingerpad_validation.csv" class="group block rounded-3xl border border-line bg-slate-50 p-6 transition hover:-translate-y-1 hover:border-accent hover:bg-blue-50 hover:shadow-soft">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <p class="text-xs font-bold uppercase tracking-wide text-accent">Validation data</p>
+              <h3 class="mt-2 text-lg font-black text-ink">Fingerpad / fingertip validation</h3>
+            </div>
+            <span class="rounded-full bg-white px-3 py-1 text-xs font-bold text-muted shadow-sm">CSV</span>
+          </div>
+          <p class="mt-3 text-sm leading-6 text-muted">
+            Additional validation traces collected from other PaXini magnetic tactile sensors.
+          </p>
+          <p class="mt-5 text-sm font-bold text-accent">Download →</p>
+        </a>
+
+        <a href="data/end_to_end_trials.csv" download="end_to_end_trials.csv" class="group block rounded-3xl border border-line bg-slate-50 p-6 transition hover:-translate-y-1 hover:border-accent hover:bg-blue-50 hover:shadow-soft">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <p class="text-xs font-bold uppercase tracking-wide text-accent">Evaluation data</p>
+              <h3 class="mt-2 text-lg font-black text-ink">End-to-end trials</h3>
+            </div>
+            <span class="rounded-full bg-white px-3 py-1 text-xs font-bold text-muted shadow-sm">CSV</span>
+          </div>
+          <p class="mt-3 text-sm leading-6 text-muted">
+            Trial-level records for end-to-end attack evaluations and success-rate calculation.
+          </p>
+          <p class="mt-5 text-sm font-bold text-accent">Download →</p>
+        </a>
+
+        <a href="data/blind_test_results.csv" download="blind_test_results.csv" class="group block rounded-3xl border border-line bg-slate-50 p-6 transition hover:-translate-y-1 hover:border-accent hover:bg-blue-50 hover:shadow-soft">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <p class="text-xs font-bold uppercase tracking-wide text-accent">Processed result</p>
+              <h3 class="mt-2 text-lg font-black text-ink">Blind-test results</h3>
+            </div>
+            <span class="rounded-full bg-white px-3 py-1 text-xs font-bold text-muted shadow-sm">CSV</span>
+          </div>
+          <p class="mt-3 text-sm leading-6 text-muted">
+            Processed results used for quantitative reconstruction, blind testing, and error analysis.
+          </p>
+          <p class="mt-5 text-sm font-bold text-accent">Download →</p>
+        </a>
+
+        <a href="data/metadata.json" download="metadata.json" class="group block rounded-3xl border border-line bg-slate-50 p-6 transition hover:-translate-y-1 hover:border-accent hover:bg-blue-50 hover:shadow-soft">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <p class="text-xs font-bold uppercase tracking-wide text-accent">Documentation</p>
+              <h3 class="mt-2 text-lg font-black text-ink">Dataset metadata</h3>
+            </div>
+            <span class="rounded-full bg-white px-3 py-1 text-xs font-bold text-muted shadow-sm">JSON</span>
+          </div>
+          <p class="mt-3 text-sm leading-6 text-muted">
+            Sensor model, sampling rate, units, trial labels, and other dataset descriptions.
+          </p>
+          <p class="mt-5 text-sm font-bold text-accent">Download →</p>
+        </a>
+
+        <!-- Source code -->
+        <a href="src/fit_rbf.py" download="fit_rbf.py" class="group block rounded-3xl border border-line bg-white p-6 transition hover:-translate-y-1 hover:border-accent hover:bg-blue-50 hover:shadow-soft">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <p class="text-xs font-bold uppercase tracking-wide text-accent">Source code</p>
+              <h3 class="mt-2 text-lg font-black text-ink">RBF fitting script</h3>
+            </div>
+            <span class="rounded-full bg-slate-100 px-3 py-1 text-xs font-bold text-muted">PY</span>
+          </div>
+          <p class="mt-3 text-sm leading-6 text-muted">
+            Source code for fitting the force reconstruction model from the provided dataset.
+          </p>
+          <p class="mt-5 text-sm font-bold text-accent">Download →</p>
+        </a>
+
+        <a href="src/plot_heatmaps.py" download="plot_heatmaps.py" class="group block rounded-3xl border border-line bg-white p-6 transition hover:-translate-y-1 hover:border-accent hover:bg-blue-50 hover:shadow-soft">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <p class="text-xs font-bold uppercase tracking-wide text-accent">Source code</p>
+              <h3 class="mt-2 text-lg font-black text-ink">Heatmap plotting script</h3>
+            </div>
+            <span class="rounded-full bg-slate-100 px-3 py-1 text-xs font-bold text-muted">PY</span>
+          </div>
+          <p class="mt-3 text-sm leading-6 text-muted">
+            Script for drawing spatial heatmaps of three-dimensional tactile force responses.
+          </p>
+          <p class="mt-5 text-sm font-bold text-accent">Download →</p>
+        </a>
+
+        <a href="src/evaluate_blind_test.py" download="evaluate_blind_test.py" class="group block rounded-3xl border border-line bg-white p-6 transition hover:-translate-y-1 hover:border-accent hover:bg-blue-50 hover:shadow-soft">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <p class="text-xs font-bold uppercase tracking-wide text-accent">Source code</p>
+              <h3 class="mt-2 text-lg font-black text-ink">Blind-test evaluation</h3>
+            </div>
+            <span class="rounded-full bg-slate-100 px-3 py-1 text-xs font-bold text-muted">PY</span>
+          </div>
+          <p class="mt-3 text-sm leading-6 text-muted">
+            Script for calculating MAE, RMSE, and blind-test reconstruction performance.
+          </p>
+          <p class="mt-5 text-sm font-bold text-accent">Download →</p>
+        </a>
       </div>
     </section>
 
@@ -270,8 +417,8 @@
         <li class="flex gap-4 rounded-2xl border border-line bg-slate-50 p-5">
           <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-ink text-sm font-bold text-white">1</span>
           <div>
-            <h3 class="font-bold">Inspect the artifact structure</h3>
-            <p class="mt-1 text-sm leading-6 text-muted">Check the README, data directories, plotting scripts, and demo videos.</p>
+            <h3 class="font-bold">Download raw datasets and source code</h3>
+            <p class="mt-1 text-sm leading-6 text-muted">Use the download cards above to obtain raw traces, processed results, metadata, and scripts.</p>
           </div>
         </li>
         <li class="flex gap-4 rounded-2xl border border-line bg-slate-50 p-5">
@@ -350,7 +497,7 @@
       <p>© Anonymous Author(s). For artifact review only.</p>
       <div class="flex gap-4">
         <a class="hover:text-accent" href="#abstract">Abstract</a>
-        <a class="hover:text-accent" href="#artifact">Artifact</a>
+        <a class="hover:text-accent" href="#datasets">Datasets</a>
         <a class="hover:text-accent" href="#qa">Q&A</a>
       </div>
     </div>
