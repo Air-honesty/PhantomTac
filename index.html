@@ -35,6 +35,37 @@
       background: rgba(255, 255, 255, 0.82);
     }
 
+    .hero-logo-wrap {
+      margin: 0 auto 2rem auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-logo {
+      max-width: min(560px, 90vw);
+      max-height: 150px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .logo-placeholder {
+      width: min(560px, 90vw);
+      min-height: 120px;
+      border: 1px dashed #cbd5e1;
+      border-radius: 1.5rem;
+      background: rgba(255, 255, 255, 0.72);
+      color: #64748b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
     .section-card {
       scroll-margin-top: 6rem;
       margin-top: 4rem;
@@ -102,6 +133,10 @@
       .section-card {
         padding: 1.75rem;
       }
+
+      .logo-placeholder {
+        min-height: 96px;
+      }
     }
   </style>
 </head>
@@ -133,6 +168,20 @@
     <div class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,_rgba(37,99,235,0.16),_transparent_35%),radial-gradient(circle_at_top_right,_rgba(14,165,233,0.14),_transparent_30%)]"></div>
 
     <div class="mx-auto max-w-5xl px-5 pb-16 pt-4 text-center">
+      <div class="hero-logo-wrap">
+        <img
+          src="assets/phantomtac-logo.png"
+          alt="PhantomTac logo"
+          class="hero-logo"
+          onload="this.style.display='block'; this.nextElementSibling.style.display='none';"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+        />
+        <div class="logo-placeholder">
+          Logo placeholder<br />
+          Upload your logo to <strong>assets/phantomtac-logo.png</strong> and it will appear here automatically.
+        </div>
+      </div>
+
       <h1 class="mx-auto max-w-5xl text-4xl font-black leading-tight tracking-tight text-ink md:text-6xl">
         PhantomTac: Hijacking Robotic Tactile Systems with Deploy-and-forget Tags
       </h1>
