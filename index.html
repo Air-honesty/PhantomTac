@@ -47,11 +47,11 @@
 
       <div class="hidden items-center gap-6 text-sm font-medium text-muted md:flex">
         <a class="hover:text-accent" href="#abstract">Abstract</a>
+        <a class="hover:text-accent" href="#magnetic-tactile-sensors">Sensors</a>
         <a class="hover:text-accent" href="#overview">Overview</a>
-        <a class="hover:text-accent" href="#datasets">Datasets</a>
         <a class="hover:text-accent" href="#demos">Demos</a>
-        <a class="hover:text-accent" href="#reproduce">Reproduce</a>
         <a class="hover:text-accent" href="#qa">Q&A</a>
+        <a class="hover:text-accent" href="#datasets">Datasets</a>
       </div>
 
       <a href="#datasets" class="rounded-full bg-ink px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-accentDark">
@@ -70,7 +70,7 @@
       </h1>
 
       <p class="mx-auto mt-6 max-w-4xl text-lg leading-8 text-muted">
-        This page provides the anonymized artifact package, raw datasets, source code, demo materials, and reproduction notes for evaluating PhantomTac, a passive physical-layer attack against magnetic tactile sensing systems.
+        This page provides the anonymized artifact package, raw datasets, source code, and demo materials for evaluating PhantomTac, a passive physical-layer attack against magnetic tactile sensing systems.
       </p>
 
       <div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
@@ -109,13 +109,47 @@
       </div>
     </section>
 
+    <!-- Magnetic tactile sensors -->
+    <section id="magnetic-tactile-sensors" class="scroll-mt-24 mt-16 rounded-3xl border border-line bg-white p-7 shadow-sm md:p-10">
+      <div class="mb-8 max-w-3xl">
+        <p class="text-sm font-bold uppercase tracking-wide text-accent">Background</p>
+        <h2 class="mt-2 text-3xl font-black tracking-tight">Magnetic tactile sensors</h2>
+        <p class="mt-4 leading-7 text-muted">
+          Magnetic tactile sensors are an emerging tactile sensing modality for robotic manipulation. They usually embed small magnets inside a soft elastomer and use magnetic field sensors to infer deformation and contact forces.
+        </p>
+      </div>
+
+      <div class="grid gap-5 md:grid-cols-3">
+        <article class="rounded-3xl border border-line bg-slate-50 p-6">
+          <h3 class="text-xl font-bold">Sensing principle</h3>
+          <p class="mt-3 leading-7 text-muted">
+            When external contact deforms the soft structure, the relative position between the embedded magnet and the magnetic field sensor changes. The measured magnetic field variation is then mapped to tactile force information.
+          </p>
+        </article>
+
+        <article class="rounded-3xl border border-line bg-slate-50 p-6">
+          <h3 class="text-xl font-bold">Robotic applications</h3>
+          <p class="mt-3 leading-7 text-muted">
+            These sensors are useful for robotic grasping, dexterous manipulation, slip detection, contact localization, and closed-loop force control because they can provide compact and multi-dimensional tactile feedback.
+          </p>
+        </article>
+
+        <article class="rounded-3xl border border-line bg-slate-50 p-6">
+          <h3 class="text-xl font-bold">Security implication</h3>
+          <p class="mt-3 leading-7 text-muted">
+            Because the sensing signal is derived from magnetic field measurements, external magnetic sources can become a physical-layer attack surface. PhantomTac studies how passive magnetic tags can exploit this property.
+          </p>
+        </article>
+      </div>
+    </section>
+
     <!-- Overview -->
     <section id="overview" class="scroll-mt-24 mt-16">
       <div class="mb-8 max-w-3xl">
         <p class="text-sm font-bold uppercase tracking-wide text-accent">How it works</p>
         <h2 class="mt-2 text-3xl font-black tracking-tight">Attack overview</h2>
         <p class="mt-4 leading-7 text-muted">
-          The artifact is organized around three attack vectors and their physical impacts on robotic manipulation.
+          PhantomTac is organized around three attack vectors and their physical impacts on robotic manipulation.
         </p>
       </div>
 
@@ -146,19 +180,127 @@
       </div>
     </section>
 
+    <!-- Demos -->
+    <section id="demos" class="scroll-mt-24 mt-16">
+      <div class="mb-8 max-w-3xl">
+        <p class="text-sm font-bold uppercase tracking-wide text-accent">Visual evidence</p>
+        <h2 class="mt-2 text-3xl font-black tracking-tight">End-to-end impacts</h2>
+        <p class="mt-4 leading-7 text-muted">
+          The following demo materials show representative physical consequences caused by spoofed tactile feedback.
+        </p>
+      </div>
+
+      <div class="grid gap-6 lg:grid-cols-2">
+        <article class="overflow-hidden rounded-3xl border border-line bg-white shadow-sm">
+          <div class="aspect-video bg-slate-100">
+            <video class="h-full w-full" src="demo1.mp4" controls preload="metadata" poster="微信图片_20260427221856_402_12.jpg">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold">Impact I: Crushing caused by over-force grasping</h3>
+            <p class="mt-3 leading-7 text-muted">
+              Spoofed tactile feedback can make the gripper continue tightening after safe contact should have been detected, leading to object deformation or damage.
+            </p>
+          </div>
+        </article>
+
+        <article class="overflow-hidden rounded-3xl border border-line bg-white shadow-sm">
+          <div class="flex aspect-video items-center justify-center bg-slate-100 text-center text-sm font-medium text-slate-400">
+            Add another video file, then replace this placeholder.
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold">Impact II: Dropping caused by under-force grasping</h3>
+            <p class="mt-3 leading-7 text-muted">
+              False force readings may cause the controller to terminate the grasping action too early, resulting in an unstable grasp and object dropping.
+            </p>
+          </div>
+        </article>
+
+        <article class="overflow-hidden rounded-3xl border border-line bg-white shadow-sm">
+          <div class="flex aspect-video items-center justify-center bg-slate-100 text-center text-sm font-medium text-slate-400">
+            Add another video file, then replace this placeholder.
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold">Impact III: False contact on robotic hand</h3>
+            <p class="mt-3 leading-7 text-muted">
+              A tactile system may report contact before physical interaction, causing premature withdrawal or unexpected manipulation behavior.
+            </p>
+          </div>
+        </article>
+
+        <article class="overflow-hidden rounded-3xl border border-line bg-white shadow-sm">
+          <div class="flex aspect-video items-center justify-center bg-slate-100 text-center text-sm font-medium text-slate-400">
+            Add another video file, then replace this placeholder.
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold">Impact IV: Collision or environmental disturbance</h3>
+            <p class="mt-3 leading-7 text-muted">
+              Misleading tactile feedback can interfere with safe interaction policies and cause unintended contact with surrounding objects.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Q&A -->
+    <section id="qa" class="scroll-mt-24 mt-16 rounded-3xl border border-line bg-white p-7 shadow-sm md:p-10">
+      <div class="mb-8 max-w-3xl">
+        <p class="text-sm font-bold uppercase tracking-wide text-accent">Reviewer notes</p>
+        <h2 class="mt-2 text-3xl font-black tracking-tight">Q&A</h2>
+      </div>
+
+      <div class="divide-y divide-line">
+        <details class="group py-5" open>
+          <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-bold">
+            Which tactile sensors are affected by this vulnerability?
+            <span class="text-muted transition group-open:rotate-45">+</span>
+          </summary>
+          <p class="mt-3 leading-7 text-muted">
+            The artifact focuses on commercial off-the-shelf magnetic tactile sensors evaluated in the paper, including PaXini and XELA sensor families. The core issue is related to magnetic-field-based force interpretation.
+          </p>
+        </details>
+
+        <details class="group py-5">
+          <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-bold">
+            Can visual monitoring detect the deployed tags?
+            <span class="text-muted transition group-open:rotate-45">+</span>
+          </summary>
+          <p class="mt-3 leading-7 text-muted">
+            Visual detection is challenging when passive tags are hidden under ordinary labels or stickers. The artifact includes demos and figures that illustrate this stealthy deployment model.
+          </p>
+        </details>
+
+        <details class="group py-5">
+          <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-bold">
+            Does the artifact require specialized hardware to review?
+            <span class="text-muted transition group-open:rotate-45">+</span>
+          </summary>
+          <p class="mt-3 leading-7 text-muted">
+            Reviewing the scripts, figures, recorded traces, and videos does not require hardware. Fully repeating the physical experiments requires the tactile sensors, robotic platform, and tag materials described in the paper.
+          </p>
+        </details>
+
+        <details class="group py-5">
+          <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-bold">
+            How is double-blind review preserved?
+            <span class="text-muted transition group-open:rotate-45">+</span>
+          </summary>
+          <p class="mt-3 leading-7 text-muted">
+            The page intentionally uses anonymous authorship and avoids institutional identifiers. Do not include personal names, lab names, account names, or non-anonymous links in this page during review.
+          </p>
+        </details>
+      </div>
+    </section>
+
     <!-- Datasets and source code -->
     <section id="datasets" class="scroll-mt-24 mt-16 rounded-3xl border border-line bg-white p-7 shadow-sm md:p-10">
       <div class="mb-8 max-w-3xl">
         <p class="text-sm font-bold uppercase tracking-wide text-accent">Downloadable materials</p>
         <h2 class="mt-2 text-3xl font-black tracking-tight">Datasets & source code</h2>
         <p class="mt-4 leading-7 text-muted">
-          The following files are provided for artifact review. Click each card to directly download the corresponding raw dataset, processed result, or reproduction script.
+          The following files are provided for artifact review. Click each card to directly download the corresponding raw dataset, processed result, or source code.
         </p>
-      </div>
-
-      <div class="mb-8 rounded-2xl border border-blue-100 bg-blue-50 p-5 text-sm leading-6 text-blue-900">
-        <strong>Repository layout expected by this page:</strong>
-        place datasets under <code class="rounded bg-white px-1.5 py-0.5">data/</code> and source code under <code class="rounded bg-white px-1.5 py-0.5">src/</code>. If your file names are different, only modify the <code class="rounded bg-white px-1.5 py-0.5">href</code> and <code class="rounded bg-white px-1.5 py-0.5">download</code> fields below.
       </div>
 
       <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
@@ -289,164 +431,6 @@
         </a>
       </div>
     </section>
-
-    <!-- Demos -->
-    <section id="demos" class="scroll-mt-24 mt-16">
-      <div class="mb-8 max-w-3xl">
-        <p class="text-sm font-bold uppercase tracking-wide text-accent">Visual evidence</p>
-        <h2 class="mt-2 text-3xl font-black tracking-tight">End-to-end impacts</h2>
-        <p class="mt-4 leading-7 text-muted">
-          Replace or duplicate the video blocks below as more demos are added to the repository.
-        </p>
-      </div>
-
-      <div class="grid gap-6 lg:grid-cols-2">
-        <article class="overflow-hidden rounded-3xl border border-line bg-white shadow-sm">
-          <div class="aspect-video bg-slate-100">
-            <video class="h-full w-full" src="demo1.mp4" controls preload="metadata" poster="微信图片_20260427221856_402_12.jpg">
-              Your browser does not support the video tag.
-            </video>
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold">Impact I: Crushing caused by over-force grasping</h3>
-            <p class="mt-3 leading-7 text-muted">
-              Spoofed tactile feedback can make the gripper continue tightening after safe contact should have been detected, leading to object deformation or damage.
-            </p>
-          </div>
-        </article>
-
-        <article class="overflow-hidden rounded-3xl border border-line bg-white shadow-sm">
-          <div class="flex aspect-video items-center justify-center bg-slate-100 text-center text-sm font-medium text-slate-400">
-            Add another video file, then replace this placeholder.
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold">Impact II: Dropping caused by under-force grasping</h3>
-            <p class="mt-3 leading-7 text-muted">
-              False force readings may cause the controller to terminate the grasping action too early, resulting in an unstable grasp and object dropping.
-            </p>
-          </div>
-        </article>
-
-        <article class="overflow-hidden rounded-3xl border border-line bg-white shadow-sm">
-          <div class="flex aspect-video items-center justify-center bg-slate-100 text-center text-sm font-medium text-slate-400">
-            Add another video file, then replace this placeholder.
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold">Impact III: False contact on robotic hand</h3>
-            <p class="mt-3 leading-7 text-muted">
-              A tactile system may report contact before physical interaction, causing premature withdrawal or unexpected manipulation behavior.
-            </p>
-          </div>
-        </article>
-
-        <article class="overflow-hidden rounded-3xl border border-line bg-white shadow-sm">
-          <div class="flex aspect-video items-center justify-center bg-slate-100 text-center text-sm font-medium text-slate-400">
-            Add another video file, then replace this placeholder.
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold">Impact IV: Collision or environmental disturbance</h3>
-            <p class="mt-3 leading-7 text-muted">
-              Misleading tactile feedback can interfere with safe interaction policies and cause unintended contact with surrounding objects.
-            </p>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- Reproduce -->
-    <section id="reproduce" class="scroll-mt-24 mt-16 rounded-3xl border border-line bg-white p-7 shadow-sm md:p-10">
-      <div class="mb-8 max-w-3xl">
-        <p class="text-sm font-bold uppercase tracking-wide text-accent">Review instructions</p>
-        <h2 class="mt-2 text-3xl font-black tracking-tight">Suggested reproduction workflow</h2>
-        <p class="mt-4 leading-7 text-muted">
-          The following checklist gives reviewers a concise path for inspecting the artifact without exposing author identity.
-        </p>
-      </div>
-
-      <ol class="space-y-4">
-        <li class="flex gap-4 rounded-2xl border border-line bg-slate-50 p-5">
-          <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-ink text-sm font-bold text-white">1</span>
-          <div>
-            <h3 class="font-bold">Download raw datasets and source code</h3>
-            <p class="mt-1 text-sm leading-6 text-muted">Use the download cards above to obtain raw traces, processed results, metadata, and scripts.</p>
-          </div>
-        </li>
-
-        <li class="flex gap-4 rounded-2xl border border-line bg-slate-50 p-5">
-          <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-ink text-sm font-bold text-white">2</span>
-          <div>
-            <h3 class="font-bold">Run the reconstruction and fitting scripts</h3>
-            <p class="mt-1 text-sm leading-6 text-muted">Reproduce RBF fitting, blind-test evaluation, and force reconstruction metrics from the provided data.</p>
-          </div>
-        </li>
-
-        <li class="flex gap-4 rounded-2xl border border-line bg-slate-50 p-5">
-          <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-ink text-sm font-bold text-white">3</span>
-          <div>
-            <h3 class="font-bold">Generate figures</h3>
-            <p class="mt-1 text-sm leading-6 text-muted">Use the visualization scripts to regenerate spatial heatmaps and response curves.</p>
-          </div>
-        </li>
-
-        <li class="flex gap-4 rounded-2xl border border-line bg-slate-50 p-5">
-          <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-ink text-sm font-bold text-white">4</span>
-          <div>
-            <h3 class="font-bold">Review end-to-end evidence</h3>
-            <p class="mt-1 text-sm leading-6 text-muted">Compare the demo videos with the reported attack scenarios and evaluation results.</p>
-          </div>
-        </li>
-      </ol>
-    </section>
-
-    <!-- Q&A -->
-    <section id="qa" class="scroll-mt-24 mt-16 rounded-3xl border border-line bg-white p-7 shadow-sm md:p-10">
-      <div class="mb-8 max-w-3xl">
-        <p class="text-sm font-bold uppercase tracking-wide text-accent">Reviewer notes</p>
-        <h2 class="mt-2 text-3xl font-black tracking-tight">Q&A</h2>
-      </div>
-
-      <div class="divide-y divide-line">
-        <details class="group py-5" open>
-          <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-bold">
-            Which tactile sensors are affected by this vulnerability?
-            <span class="text-muted transition group-open:rotate-45">+</span>
-          </summary>
-          <p class="mt-3 leading-7 text-muted">
-            The artifact focuses on commercial off-the-shelf magnetic tactile sensors evaluated in the paper, including PaXini and XELA sensor families. The core issue is related to magnetic-field-based force interpretation.
-          </p>
-        </details>
-
-        <details class="group py-5">
-          <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-bold">
-            Can visual monitoring detect the deployed tags?
-            <span class="text-muted transition group-open:rotate-45">+</span>
-          </summary>
-          <p class="mt-3 leading-7 text-muted">
-            Visual detection is challenging when passive tags are hidden under ordinary labels or stickers. The artifact includes demos and figures that illustrate this stealthy deployment model.
-          </p>
-        </details>
-
-        <details class="group py-5">
-          <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-bold">
-            Does the artifact require specialized hardware to review?
-            <span class="text-muted transition group-open:rotate-45">+</span>
-          </summary>
-          <p class="mt-3 leading-7 text-muted">
-            Reviewing the scripts, figures, recorded traces, and videos does not require hardware. Fully repeating the physical experiments requires the tactile sensors, robotic platform, and tag materials described in the paper.
-          </p>
-        </details>
-
-        <details class="group py-5">
-          <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-bold">
-            How is double-blind review preserved?
-            <span class="text-muted transition group-open:rotate-45">+</span>
-          </summary>
-          <p class="mt-3 leading-7 text-muted">
-            The page intentionally uses anonymous authorship and avoids institutional identifiers. Do not include personal names, lab names, account names, or non-anonymous links in this page during review.
-          </p>
-        </details>
-      </div>
-    </section>
   </main>
 
   <footer class="border-t border-line bg-white">
@@ -454,8 +438,8 @@
       <p>© Anonymous Author(s). For artifact review only.</p>
       <div class="flex gap-4">
         <a class="hover:text-accent" href="#abstract">Abstract</a>
+        <a class="hover:text-accent" href="#magnetic-tactile-sensors">Sensors</a>
         <a class="hover:text-accent" href="#datasets">Datasets</a>
-        <a class="hover:text-accent" href="#qa">Q&A</a>
       </div>
     </div>
   </footer>
