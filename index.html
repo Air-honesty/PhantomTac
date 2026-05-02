@@ -174,31 +174,20 @@
       text-align: center;
     }
 
-    .scenario-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 1rem;
+    .scenario-list {
       margin-top: 1.5rem;
+      padding-left: 1.25rem;
+      color: #334155;
+      line-height: 1.8;
     }
 
-    .scenario-card {
-      border: 1px solid #e2e8f0;
-      border-radius: 1.25rem;
-      background: #f8fafc;
-      padding: 1.25rem;
+    .scenario-list li {
+      margin-top: 0.5rem;
     }
 
-    .scenario-index {
-      display: inline-flex;
-      width: 2.25rem;
-      height: 2.25rem;
-      align-items: center;
-      justify-content: center;
-      border-radius: 0.9rem;
-      background: #eff6ff;
-      color: #2563eb;
-      font-weight: 900;
-      margin-bottom: 1rem;
+    .scenario-list strong {
+      color: #0f172a;
+      font-weight: 800;
     }
 
     .section-card {
@@ -275,10 +264,6 @@
       }
 
       .sensor-figure-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .scenario-grid {
         grid-template-columns: 1fr;
       }
     }
@@ -417,39 +402,12 @@
         PhantomTac uses a passive magnetic tag to perturb the magnetic field around a tactile sensor, thereby spoofing tactile feedback and hijacking closed-loop robotic manipulation.
       </p>
 
-      <div class="scenario-grid">
-        <article class="scenario-card">
-          <span class="scenario-index">1</span>
-          <h3 class="text-lg font-bold">Stealthy tag deployment</h3>
-          <p class="mt-3 text-sm leading-6 text-muted">
-            The attacker attaches a thin, battery-free magnetic tag to the target object and hides it under an ordinary sticker or label.
-          </p>
-        </article>
-
-        <article class="scenario-card">
-          <span class="scenario-index">2</span>
-          <h3 class="text-lg font-bold">Magnetic-field perturbation</h3>
-          <p class="mt-3 text-sm leading-6 text-muted">
-            When the robot touches the tagged object, the tag changes the local magnetic field measured by the tactile sensor.
-          </p>
-        </article>
-
-        <article class="scenario-card">
-          <span class="scenario-index">3</span>
-          <h3 class="text-lg font-bold">False tactile feedback</h3>
-          <p class="mt-3 text-sm leading-6 text-muted">
-            The sensor reports spoofed normal or shear forces, causing the controller to make incorrect manipulation decisions.
-          </p>
-        </article>
-
-        <article class="scenario-card">
-          <span class="scenario-index">4</span>
-          <h3 class="text-lg font-bold">Physical manipulation impact</h3>
-          <p class="mt-3 text-sm leading-6 text-muted">
-            The robot may crush, drop, falsely contact, or collide with objects due to the manipulated tactile feedback.
-          </p>
-        </article>
-      </div>
+      <ul class="scenario-list">
+        <li><strong>Stealthy tag deployment:</strong> the attacker attaches a thin, battery-free magnetic tag to the target object and hides it under an ordinary sticker or label.</li>
+        <li><strong>Magnetic-field perturbation:</strong> when the robot touches the tagged object, the tag changes the local magnetic field measured by the tactile sensor.</li>
+        <li><strong>False tactile feedback:</strong> the sensor reports spoofed normal or shear forces, causing the controller to make incorrect manipulation decisions.</li>
+        <li><strong>Physical manipulation impact:</strong> the robot may crush, drop, falsely contact, or collide with objects due to the manipulated tactile feedback.</li>
+      </ul>
     </section>
 
     <section id="demos" class="section-card">
