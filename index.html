@@ -28,6 +28,7 @@
   <style>
     body {
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 17px;
     }
 
     .glass {
@@ -62,8 +63,8 @@
       justify-content: center;
       text-align: center;
       padding: 1.5rem;
-      font-size: 0.95rem;
-      line-height: 1.6;
+      font-size: 1.05rem;
+      line-height: 1.65;
     }
 
     .sensor-figure-grid {
@@ -110,15 +111,15 @@
       justify-content: center;
       text-align: center;
       padding: 1rem;
-      font-size: 0.92rem;
-      line-height: 1.6;
+      font-size: 1rem;
+      line-height: 1.65;
       background: #ffffff;
     }
 
     .sensor-figure-label {
       margin-top: 0.85rem;
-      font-size: 0.92rem;
-      line-height: 1.5;
+      font-size: 1rem;
+      line-height: 1.6;
       color: #334155;
       text-align: center;
       font-weight: 600;
@@ -127,8 +128,8 @@
     .sensor-caption {
       margin-top: 1.2rem;
       color: #475569;
-      font-size: 0.95rem;
-      line-height: 1.6;
+      font-size: 1.0625rem;
+      line-height: 1.8;
       text-align: center;
     }
 
@@ -170,16 +171,16 @@
       justify-content: center;
       text-align: center;
       padding: 1rem;
-      font-size: 0.95rem;
-      line-height: 1.6;
+      font-size: 1.05rem;
+      line-height: 1.65;
       background: #ffffff;
     }
 
     .overview-caption {
       margin-top: 1rem;
       color: #475569;
-      font-size: 0.98rem;
-      line-height: 1.7;
+      font-size: 1.0625rem;
+      line-height: 1.8;
       text-align: center;
     }
 
@@ -187,7 +188,8 @@
       margin-top: 1.5rem;
       padding-left: 1.25rem;
       color: #334155;
-      line-height: 1.8;
+      font-size: 1.0625rem;
+      line-height: 1.85;
     }
 
     .scenario-list li {
@@ -256,8 +258,8 @@
       padding: 1rem;
       text-align: center;
       color: #64748b;
-      font-size: 0.82rem;
-      line-height: 1.55;
+      font-size: 0.95rem;
+      line-height: 1.6;
       background: #ffffff;
     }
 
@@ -299,7 +301,20 @@
       width: 100%;
       max-width: none;
       color: #475569;
-      line-height: 1.75rem;
+      font-size: 1.0625rem;
+      line-height: 1.8;
+    }
+
+    .section-card p,
+    .section-card li {
+      font-size: 1.0625rem;
+      line-height: 1.8;
+    }
+
+    .demo-card p,
+    .download-card p {
+      font-size: 1rem;
+      line-height: 1.7;
     }
 
     .info-card {
@@ -405,7 +420,7 @@
 
       <div class="space-y-5 text-justify text-base leading-8 text-slate-700">
         <p>
-          Tactile perception is crucial for precise robotic manipulation and robotic arm grasping, providing an important foundation for dexterous, closed-loop force control. Among various tactile sensing techniques, magnetic tactile sensors stand out thanks to their fine-grained, three-dimensional force perception capability and strong robustness against visual occlusion. In this study, we discover a physical loophole called <strong>PhantomTac</strong> in magnetic tactile sensors. The attacker can alter the magnetic field, thus spoofing the force interpreted by magnetic tactile sensors. The attacker can stealthily deploy such an attack by simply attaching a thin (the thickness is around 0.5 mm), battery-free magnetic tag to the surface of an object. Hence, the attack tag can be easily concealed by a barcode sticker. Such an attack scheme is ``deploy-and-forget'' --- the attack can deploy the tag and leave. When a robotic hand is picking up an object, it may severely damage the object. Specifically, spoofing the normal force can crush the object, whereas shear force spoofing can lead to a loose grip, thus dropping the object. Compared with directly sabotaging the robotic hand, <strong>PhantomTac</strong> is much more concealed as the attacker does not need access to the device. We performed extensive reverse-engineering efforts to characterize the sensing mechanism of commercial-off-the-shelf tactile sensors and proposed a practical tag design. -to- evaluations conducted on real robots and robotic arms demonstrate that our attack can bypass existing anti-interference mechanisms and effectively hijack their closed-loop control processes, achieving an attack success rate exceeding 95% when the grasping error tolerance is bounded within 8 mm. Finally, based on the limitations of existing anti-magnetic interference mechanisms, we propose and evaluate a novel defense mechanism to effectively mitigate such physical-layer security threats.
+          Tactile perception is crucial for precise robotic manipulation and robotic arm grasping, providing an important foundation for dexterous, closed-loop force control. Among various tactile sensing techniques, magnetic tactile sensors stand out thanks to their fine-grained, three-dimensional force perception capability and strong robustness against visual occlusion. In this study, we discover a physical loophole called <strong>PhantomTac</strong> in magnetic tactile sensors. The attacker can alter the magnetic field, thus spoofing the force interpreted by magnetic tactile sensors. The attacker can stealthily deploy such an attack by simply attaching a thin (the thickness is around 0.5 mm), battery-free magnetic tag to the surface of an object. Hence, the attack tag can be easily concealed by a barcode sticker. Such an attack scheme is ``deploy-and-forget'' --- the attack can deploy the tag and leave. When a robotic hand is picking up an object, it may severely damage the object. Specifically, spoofing the normal force can crush the object, whereas shear force spoofing can lead to a loose grip, thus dropping the object. Compared with directly sabotaging the robotic hand, <strong>PhantomTac</strong> is much more concealed as the attacker does not need access to the device. We performed extensive reverse-engineering efforts to characterize the sensing mechanism of commercial-off-the-shelf tactile sensors and proposed a practical tag design. End-to-end evaluations conducted on real robots and robotic arms demonstrate that our attack can bypass existing anti-interference mechanisms and effectively hijack their closed-loop control processes, achieving an attack success rate exceeding 95% when the grasping error tolerance is bounded within 8 mm. Finally, based on the limitations of existing anti-magnetic interference mechanisms, we propose and evaluate a novel defense mechanism to effectively mitigate such physical-layer security threats.
         </p>
       </div>
     </section>
@@ -431,7 +446,7 @@
               Upload to <strong>figures/magnetic-tactile-structure.png</strong>
             </div>
           </div>
-          <div class="sensor-figure-label">(a) The compressed and shear states characterized normal and shear forces, respectively.</div>
+          <div class="sensor-figure-label">(a) The compressed and shear states characterize normal and shear forces, respectively.</div>
         </article>
 
         <article class="sensor-figure-card">
@@ -448,12 +463,12 @@
               Upload to <strong>figures/magnetic-tactile-principle.png</strong>
             </div>
           </div>
-          <div class="sensor-figure-label">(b)  Inside view of PaXini PX6AX-GEN3-MC-M2020-Elite.</div>
+          <div class="sensor-figure-label">(b) Inside view of PaXini PX6AX-GEN3-MC-M2020-Elite.</div>
         </article>
       </div>
 
       <p class="sensor-caption">
-        Magnetic tactile sensors convert mechanical forces into measurable magnetic-field variations. As shown in Figure (a), a typical sensor consists of a flexible elastomer, an embedded magnet, and an underlying array of magnetometers. When external pressure is applied, the elastomer deforms under compression, bing, or shear, changing the relative position and pose between the magnet and the sensing units. These changes alter the local magnetic-field distribution. The measured magnetic signals are then mapped to tactile information, such as contact location, normal force, shear force, and slip.
+        Magnetic tactile sensors convert mechanical forces into measurable magnetic-field variations. As shown in Figure (a), a typical sensor consists of a flexible elastomer, an embedded magnet, and an underlying array of magnetometers. When external pressure is applied, the elastomer deforms under compression, bending, or shear, changing the relative position and pose between the magnet and the sensing units. These changes alter the local magnetic-field distribution. The measured magnetic signals are then mapped to tactile information, such as contact location, normal force, shear force, and slip.
       </p>
     </section>
 
