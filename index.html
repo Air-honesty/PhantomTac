@@ -499,10 +499,10 @@
       </p>
 
       <ul class="scenario-list">
-        <li><strong>Crushing:</strong> the attacker attaches a thin, battery-free magnetic tag to the target object and hides it under an ordinary sticker or label.</li>
-        <li><strong>Dropping:</strong> when the robot touches the tagged object, the tag changes the local magnetic field measured by the tactile sensor.</li>
-        <li><strong>Toppling:</strong> the sensor reports spoofed normal or shear forces, causing the controller to make incorrect manipulation decisions.</li>
-        <li><strong>Stalling:</strong> the robot may crush, drop, falsely contact, or collide with objects due to the manipulated tactile feedback.</li>
+        <li><strong>Crushing:</strong> PhantomTac injects a negative normal force, delaying the tactile sensor’s reported force from reaching the predefined grasping threshold. As a result, the object is continuously squeezed and eventually damaged.</li>
+        <li><strong>Dropping:</strong> PhantomTac injects a positive normal force, causing the tactile sensor’s reported force to reach the predefined grasping threshold prematurely. As a result, the object is not firmly grasped and is dropped and damaged.</li>
+        <li><strong>Toppling:</strong> PhantomTac injects a negative normal force, causing the robot’s collision detection system to continuously determine that the vase has not been touched. As a result, the vase is subjected to sustained pushing force, tilts, and falls over.</li>
+        <li><strong>Stalling:</strong> PhantomTac injects a positive normal force, causing the robot’s collision detection system to prematurely determine that it has touched the vase. As a result, the robot cannot complete the subsequent task involving the vase.</li>
       </ul>
     </section>
 
@@ -634,6 +634,16 @@
         <details class="group py-5">
           <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-bold">
             What consequences does PhantomTac cause?
+            <span class="text-muted transition group-open:rotate-45">+</span>
+          </summary>
+          <p class="mt-3 leading-7 text-muted">
+            Reviewing the scripts, figures, recorded traces, and videos does not require hardware. Fully repeating the physical experiments requires the tactile sensors, robotic platform, and tag materials described in the paper.
+          </p>
+        </details>
+
+        <details class="group py-5">
+          <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-bold">
+            How to defense against PhantomTac?
             <span class="text-muted transition group-open:rotate-45">+</span>
           </summary>
           <p class="mt-3 leading-7 text-muted">
