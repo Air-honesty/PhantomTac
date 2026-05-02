@@ -526,7 +526,7 @@
             <div class="p-5">
               <h4 class="text-base font-bold">Dofbot-pi4B demo I: Baseline condition</h4>
               <p class="mt-2 text-sm leading-6 text-muted">
-                Without PhatomTac. The robotic arm completes the grasping task normally.
+                <strong>Without PhantomTac.</strong> The robotic arm completes the grasping task normally. (The object is well-preserved)
               </p>
             </div>
           </article>
@@ -537,9 +537,9 @@
               <div class="demo-placeholder">Video placeholder<br />Upload to <strong>videos/arm-demo-2.mp4</strong></div>
             </div>
             <div class="p-5">
-              <h4 class="text-base font-bold">Dofbot-pi4B demo II: Unstable grasping</h4>
+              <h4 class="text-base font-bold">Dofbot-pi4B demo II: Positive normal force injection</h4>
               <p class="mt-2 text-sm leading-6 text-muted">
-                False force readings make the robotic arm terminate or adjust grasping incorrectly.
+                <strong>With PhantomTac.</strong> The robotic arm stops clamping in advance. (The object drops)
               </p>
             </div>
           </article>
@@ -550,9 +550,9 @@
               <div class="demo-placeholder">Video placeholder<br />Upload to <strong>videos/arm-demo-3.mp4</strong></div>
             </div>
             <div class="p-5">
-              <h4 class="text-base font-bold">Dofbot-pi4B demo III: Object damage or drop</h4>
+              <h4 class="text-base font-bold">Dofbot-pi4B demo III: Negative normal force injection</h4>
               <p class="mt-2 text-sm leading-6 text-muted">
-                Manipulated tactile signals lead to visible manipulation failures on the robotic-arm platform.
+                <strong>With PhantomTac.</strong> The robotic arm delays stopping the clamp. (The object crushes)
               </p>
             </div>
           </article>
@@ -568,9 +568,9 @@
               <div class="demo-placeholder">Video placeholder<br />Upload to <strong>videos/robot-demo-1.mp4</strong></div>
             </div>
             <div class="p-5">
-              <h4 class="text-base font-bold">Unitree G1 demo I: False contact</h4>
+              <h4 class="text-base font-bold">Unitree G1 demo I: Baseline condition</h4>
               <p class="mt-2 text-sm leading-6 text-muted">
-                The tactile system reports contact before real physical interaction occurs.
+                <strong>Without PhantomTac.</strong> The robot completes collision detection normally. (Normal contact with the vase)
               </p>
             </div>
           </article>
@@ -581,9 +581,9 @@
               <div class="demo-placeholder">Video placeholder<br />Upload to <strong>videos/robot-demo-2.mp4</strong></div>
             </div>
             <div class="p-5">
-              <h4 class="text-base font-bold">Unitree G1 demo II: Premature withdrawal</h4>
+              <h4 class="text-base font-bold">Unitree G1 demo II: Positive normal force injection</h4>
               <p class="mt-2 text-sm leading-6 text-muted">
-                Spoofed tactile force causes the robot to withdraw or change its action unexpectedly.
+                <strong>With PhantomTac.</strong> The robot perceives the collision in advance. (Unable to complete subsequent tasks)
               </p>
             </div>
           </article>
@@ -594,9 +594,9 @@
               <div class="demo-placeholder">Video placeholder<br />Upload to <strong>videos/robot-demo-3.mp4</strong></div>
             </div>
             <div class="p-5">
-              <h4 class="text-base font-bold">Unitree G1 demo III: Environmental disturbance</h4>
+              <h4 class="text-base font-bold">Unitree G1 demo III: Negative normal force injection</h4>
               <p class="mt-2 text-sm leading-6 text-muted">
-                Misleading tactile feedback causes unsafe interaction with surrounding objects.
+                <strong>With PhantomTac.</strong> The robot perceives the collision with a delay. (The vase topples)
               </p>
             </div>
           </article>
