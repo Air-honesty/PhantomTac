@@ -35,6 +35,7 @@
     }
   </style>
 </head>
+
 <body class="bg-paper text-ink antialiased">
   <!-- Navigation -->
   <nav class="glass fixed inset-x-0 top-0 z-50 border-b border-line">
@@ -43,15 +44,16 @@
         <span class="flex h-9 w-9 items-center justify-center rounded-xl bg-ink text-white shadow-sm">PT</span>
         <span>PhantomTac Artifact</span>
       </a>
+
       <div class="hidden items-center gap-6 text-sm font-medium text-muted md:flex">
         <a class="hover:text-accent" href="#abstract">Abstract</a>
         <a class="hover:text-accent" href="#overview">Overview</a>
-        <a class="hover:text-accent" href="#artifact">Artifact</a>
         <a class="hover:text-accent" href="#datasets">Datasets</a>
         <a class="hover:text-accent" href="#demos">Demos</a>
         <a class="hover:text-accent" href="#reproduce">Reproduce</a>
         <a class="hover:text-accent" href="#qa">Q&A</a>
       </div>
+
       <a href="#datasets" class="rounded-full bg-ink px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-accentDark">
         Download
       </a>
@@ -61,22 +63,23 @@
   <!-- Hero -->
   <header id="top" class="relative overflow-hidden pt-28">
     <div class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,_rgba(37,99,235,0.16),_transparent_35%),radial-gradient(circle_at_top_right,_rgba(14,165,233,0.14),_transparent_30%)]"></div>
+
     <div class="mx-auto max-w-5xl px-5 pb-16 pt-4 text-center">
-      <div>
-        <h1 class="mx-auto max-w-5xl text-4xl font-black leading-tight tracking-tight text-ink md:text-6xl">
-          PhantomTac: Hijacking Robotic Tactile Systems with Deploy-and-forget Tags
-        </h1>
-        <p class="mx-auto mt-6 max-w-4xl text-lg leading-8 text-muted">
-          This page provides the anonymized artifact package, raw datasets, source code, demo materials, and reproduction notes for evaluating PhantomTac, a passive physical-layer attack against magnetic tactile sensing systems.
-        </p>
-        <div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <a href="#datasets" class="inline-flex items-center justify-center rounded-2xl bg-accent px-6 py-3 font-semibold text-white shadow-soft transition hover:bg-accentDark">
-            Download datasets & code
-          </a>
-          <a href="#demos" class="inline-flex items-center justify-center rounded-2xl border border-line bg-white px-6 py-3 font-semibold text-ink transition hover:border-accent hover:text-accent">
-            Watch demo videos
-          </a>
-        </div>
+      <h1 class="mx-auto max-w-5xl text-4xl font-black leading-tight tracking-tight text-ink md:text-6xl">
+        PhantomTac: Hijacking Robotic Tactile Systems with Deploy-and-forget Tags
+      </h1>
+
+      <p class="mx-auto mt-6 max-w-4xl text-lg leading-8 text-muted">
+        This page provides the anonymized artifact package, raw datasets, source code, demo materials, and reproduction notes for evaluating PhantomTac, a passive physical-layer attack against magnetic tactile sensing systems.
+      </p>
+
+      <div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+        <a href="#datasets" class="inline-flex items-center justify-center rounded-2xl bg-accent px-6 py-3 font-semibold text-white shadow-soft transition hover:bg-accentDark">
+          Download datasets & code
+        </a>
+        <a href="#demos" class="inline-flex items-center justify-center rounded-2xl border border-line bg-white px-6 py-3 font-semibold text-ink transition hover:border-accent hover:text-accent">
+          Watch demo videos
+        </a>
       </div>
     </div>
   </header>
@@ -90,13 +93,16 @@
           <h2 class="mt-2 text-3xl font-black tracking-tight">Abstract</h2>
         </div>
       </div>
+
       <div class="space-y-5 text-justify text-base leading-8 text-slate-700">
         <p>
           Tactile perception is crucial for precise robotic manipulation and robotic arm grasping, providing an important foundation for dexterous closed-loop force control. In this study, we investigate a physical-layer loophole, called <strong>PhantomTac</strong>, in magnetic tactile sensors. By altering the local magnetic field around the sensor, an attacker can spoof the force interpreted by the tactile system.
         </p>
+
         <p>
           PhantomTac can be deployed by attaching a thin, passive, battery-free magnetic tag to the surface of an object. The tag can be concealed by ordinary labels, such as barcode stickers, enabling a stealthy deploy-and-forget attack model.
         </p>
+
         <p>
           When a robotic system interacts with a tagged object, spoofed tactile feedback can trigger unsafe control decisions. Normal-force spoofing may cause over-force grasping and object damage, whereas shear-force spoofing may lead to unstable grasping and object dropping. End-to-end evaluations show high attack effectiveness under practical robotic manipulation scenarios.
         </p>
@@ -112,6 +118,7 @@
           The artifact is organized around three attack vectors and their physical impacts on robotic manipulation.
         </p>
       </div>
+
       <div class="grid gap-5 md:grid-cols-3">
         <article class="rounded-3xl border border-line bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-soft">
           <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-50 text-xl font-black text-blue-700">1</div>
@@ -120,6 +127,7 @@
             A passive tag induces a false normal-force response, causing the controller to receive incorrect contact-force feedback.
           </p>
         </article>
+
         <article class="rounded-3xl border border-line bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-soft">
           <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-sky-50 text-xl font-black text-sky-700">2</div>
           <h3 class="text-xl font-bold">Shear force spoofing</h3>
@@ -127,6 +135,7 @@
             Spatially varying magnetic fields create spoofed shear-force patterns, which can mislead dynamic tactile interpretation.
           </p>
         </article>
+
         <article class="rounded-3xl border border-line bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-soft">
           <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-indigo-50 text-xl font-black text-indigo-700">3</div>
           <h3 class="text-xl font-bold">Stealthy deployment</h3>
@@ -134,35 +143,6 @@
             The tag is passive and thin enough to be hidden under common non-ferromagnetic covers, such as stickers or labels.
           </p>
         </article>
-      </div>
-    </section>
-
-    <!-- Artifact contents -->
-    <section id="artifact" class="scroll-mt-24 mt-16 rounded-3xl border border-line bg-white p-7 shadow-sm md:p-10">
-      <div class="mb-8 max-w-3xl">
-        <p class="text-sm font-bold uppercase tracking-wide text-accent">What is included</p>
-        <h2 class="mt-2 text-3xl font-black tracking-tight">Artifact package</h2>
-        <p class="mt-4 leading-7 text-muted">
-          The repository provides materials for reviewing the implementation, reproducing data processing, and checking end-to-end demonstrations.
-        </p>
-      </div>
-      <div class="grid gap-4 md:grid-cols-2">
-        <div class="rounded-2xl border border-line bg-slate-50 p-5">
-          <h3 class="font-bold">Raw sensor traces</h3>
-          <p class="mt-2 text-sm leading-6 text-muted">Original data collected during reverse engineering and magnetic-interference validation.</p>
-        </div>
-        <div class="rounded-2xl border border-line bg-slate-50 p-5">
-          <h3 class="font-bold">Fitting and blind-test scripts</h3>
-          <p class="mt-2 text-sm leading-6 text-muted">Code used for RBF fitting, force reconstruction, blind testing, and evaluation.</p>
-        </div>
-        <div class="rounded-2xl border border-line bg-slate-50 p-5">
-          <h3 class="font-bold">Spatial heatmap visualization</h3>
-          <p class="mt-2 text-sm leading-6 text-muted">Scripts for plotting spatial heatmaps of three-dimensional force responses.</p>
-        </div>
-        <div class="rounded-2xl border border-line bg-slate-50 p-5">
-          <h3 class="font-bold">End-to-end demos</h3>
-          <p class="mt-2 text-sm leading-6 text-muted">Videos showing representative attack outcomes on robotic manipulation platforms.</p>
-        </div>
       </div>
     </section>
 
@@ -182,7 +162,6 @@
       </div>
 
       <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-        <!-- Raw datasets -->
         <a href="data/paxini_palm_raw.csv" download="paxini_palm_raw.csv" class="group block rounded-3xl border border-line bg-slate-50 p-6 transition hover:-translate-y-1 hover:border-accent hover:bg-blue-50 hover:shadow-soft">
           <div class="flex items-start justify-between gap-4">
             <div>
@@ -267,7 +246,6 @@
           <p class="mt-5 text-sm font-bold text-accent">Download →</p>
         </a>
 
-        <!-- Source code -->
         <a href="src/fit_rbf.py" download="fit_rbf.py" class="group block rounded-3xl border border-line bg-white p-6 transition hover:-translate-y-1 hover:border-accent hover:bg-blue-50 hover:shadow-soft">
           <div class="flex items-start justify-between gap-4">
             <div>
@@ -384,6 +362,7 @@
           The following checklist gives reviewers a concise path for inspecting the artifact without exposing author identity.
         </p>
       </div>
+
       <ol class="space-y-4">
         <li class="flex gap-4 rounded-2xl border border-line bg-slate-50 p-5">
           <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-ink text-sm font-bold text-white">1</span>
@@ -392,6 +371,7 @@
             <p class="mt-1 text-sm leading-6 text-muted">Use the download cards above to obtain raw traces, processed results, metadata, and scripts.</p>
           </div>
         </li>
+
         <li class="flex gap-4 rounded-2xl border border-line bg-slate-50 p-5">
           <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-ink text-sm font-bold text-white">2</span>
           <div>
@@ -399,6 +379,7 @@
             <p class="mt-1 text-sm leading-6 text-muted">Reproduce RBF fitting, blind-test evaluation, and force reconstruction metrics from the provided data.</p>
           </div>
         </li>
+
         <li class="flex gap-4 rounded-2xl border border-line bg-slate-50 p-5">
           <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-ink text-sm font-bold text-white">3</span>
           <div>
@@ -406,6 +387,7 @@
             <p class="mt-1 text-sm leading-6 text-muted">Use the visualization scripts to regenerate spatial heatmaps and response curves.</p>
           </div>
         </li>
+
         <li class="flex gap-4 rounded-2xl border border-line bg-slate-50 p-5">
           <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-ink text-sm font-bold text-white">4</span>
           <div>
@@ -422,6 +404,7 @@
         <p class="text-sm font-bold uppercase tracking-wide text-accent">Reviewer notes</p>
         <h2 class="mt-2 text-3xl font-black tracking-tight">Q&A</h2>
       </div>
+
       <div class="divide-y divide-line">
         <details class="group py-5" open>
           <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-bold">
@@ -432,6 +415,7 @@
             The artifact focuses on commercial off-the-shelf magnetic tactile sensors evaluated in the paper, including PaXini and XELA sensor families. The core issue is related to magnetic-field-based force interpretation.
           </p>
         </details>
+
         <details class="group py-5">
           <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-bold">
             Can visual monitoring detect the deployed tags?
@@ -441,6 +425,7 @@
             Visual detection is challenging when passive tags are hidden under ordinary labels or stickers. The artifact includes demos and figures that illustrate this stealthy deployment model.
           </p>
         </details>
+
         <details class="group py-5">
           <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-bold">
             Does the artifact require specialized hardware to review?
@@ -450,6 +435,7 @@
             Reviewing the scripts, figures, recorded traces, and videos does not require hardware. Fully repeating the physical experiments requires the tactile sensors, robotic platform, and tag materials described in the paper.
           </p>
         </details>
+
         <details class="group py-5">
           <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-bold">
             How is double-blind review preserved?
