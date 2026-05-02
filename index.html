@@ -617,7 +617,7 @@
             <span class="text-muted transition group-open:rotate-45">+</span>
           </summary>
           <p class="mt-3 leading-7 text-muted">
-            The artifact focuses on commercial off-the-shelf magnetic tactile sensors evaluated in the paper, including PaXini and XELA sensor families. The core issue is related to magnetic-field-based force interpretation.
+            We evaluated products from two mainstream magnetic tactile sensor vendors, including XELA uSPa 46 and PaXini PX6AX-GEN3-MC-M2020-Elite, PX6AX-GEN3-IP-S1610-Elite, and PX6AX-GEN3-DP-S2015-Elite. All tested sensors are vulnerable to PhantomTac attacks.
           </p>
         </details>
 
@@ -627,7 +627,7 @@
             <span class="text-muted transition group-open:rotate-45">+</span>
           </summary>
           <p class="mt-3 leading-7 text-muted">
-            Visual detection is challenging when passive tags are hidden under ordinary labels or stickers. The artifact includes demos and figures that illustrate this stealthy deployment model.
+            PhantomTac may introduce a slight protrusion because it deploys small magnets.In theory, existing visual inspection systems could detect such protrusions. However, deploying such a visual inspection system would be extremely costly.
           </p>
         </details>
 
@@ -637,7 +637,7 @@
             <span class="text-muted transition group-open:rotate-45">+</span>
           </summary>
           <p class="mt-3 leading-7 text-muted">
-            Reviewing the scripts, figures, recorded traces, and videos does not require hardware. Fully repeating the physical experiments requires the tactile sensors, robotic platform, and tag materials described in the paper.
+            PhantomTac can inject both normal or shear forces into magnetic tactile sensors, thereby hijacking tactile-feedback-based closed-loop force control in robots or robotic arms. This prevents the system from accurately interpreting contact forces and can lead to object damage. For example, the robot may continuously apply excessive pressure and crush the object, or it may start transporting the object before achieving a stable grasp, causing the object to be dropped and damaged.
           </p>
         </details>
 
@@ -647,7 +647,7 @@
             <span class="text-muted transition group-open:rotate-45">+</span>
           </summary>
           <p class="mt-3 leading-7 text-muted">
-            Reviewing the scripts, figures, recorded traces, and videos does not require hardware. Fully repeating the physical experiments requires the tactile sensors, robotic platform, and tag materials described in the paper.
+            A basic defense is to cross-check tactile readings with independent robot proprioceptive signals, such as joint torques, gripper motor currents, end-effector motion, and gripper velocity. Real contact should cause consistent changes across these signals. If the tactile sensor reports contact without corresponding motion or load changes, the system can flag it as false contact. Conversely, if proprioceptive signals indicate contact while tactile readings remain low, the system can stop further force increase or enter a safe recovery mode.
           </p>
         </details>
         
