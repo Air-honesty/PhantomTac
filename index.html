@@ -660,8 +660,16 @@
         <p class="section-intro">
           The following files are provided for artifact review. The eight Excel files are stored in the
           <strong>data/</strong> directory, while the Python and MATLAB source files are stored in the
-          <strong>src/</strong> directory.
+          <strong>src/</strong> directory. The usage is as follows:
         </p>
+        
+        <ul class="scenario-list">
+        <li><strong>Crushing:</strong> PhantomTac injects a negative normal force, delaying the tactile sensor’s reported force from reaching the predefined grasping threshold. As a result, the object is continuously squeezed and eventually damaged.</li>
+        <li><strong>Dropping:</strong> PhantomTac injects a positive normal force, causing the tactile sensor’s reported force to reach the predefined grasping threshold prematurely. As a result, the object is not firmly grasped and is dropped and damaged.</li>
+        <li><strong>Toppling:</strong> PhantomTac injects a negative normal force, causing the robot’s collision detection system to continuously determine that the vase has not been touched. As a result, the vase is subjected to sustained pushing force, tilts, and falls over.</li>
+        <li><strong>Stalling:</strong> PhantomTac injects a positive normal force, causing the robot’s collision detection system to prematurely determine that it has touched the vase. As a result, the robot cannot complete the subsequent task involving the vase.</li>
+        </ul>
+        
       </div>
 
       <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
