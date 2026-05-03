@@ -552,38 +552,64 @@
 </section>
 
     <section id="overview" class="section-card">
-      <div class="section-heading">
-        <h2>Attack overview</h2>
-        <div class="title-line"></div>
+  <div class="section-heading">
+    <h2>Attack overview</h2>
+    <div class="title-line"></div>
+  </div>
+
+  <article class="overview-figure-card">
+    <div class="overview-figure-frame">
+      <img
+        src="figures/phantomtac-attack-overview_v2.png"
+        alt="PhantomTac attack overview"
+        class="overview-figure"
+        onload="this.style.display='block'; this.nextElementSibling.style.display='none';"
+        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+      />
+      <div class="overview-placeholder">
+        Attack overview image placeholder<br />
+        Upload to <strong>figures/phantomtac-attack-overview_v2.png</strong>
       </div>
+    </div>
+  </article>
 
-      <article class="overview-figure-card">
-        <div class="overview-figure-frame">
-          <img
-            src="figures/phantomtac-attack-overview_v2.png"
-            alt="PhantomTac attack overview"
-            class="overview-figure"
-            onload="this.style.display='block'; this.nextElementSibling.style.display='none';"
-            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-          />
-          <div class="overview-placeholder">
-            Attack overview image placeholder<br />
-            Upload to <strong>figures/phantomtac-attack-overview.png?v=2</strong>
-          </div>
-        </div>
-      </article>
+  <p class="overview-caption">
+    <strong>PhantomTac uses a passive magnetic tag to perturb the magnetic field around a tactile sensor, thereby spoofing tactile feedback and hijacking closed-loop robotic manipulation.</strong>
+  </p>
 
-      <p class="overview-caption">
-        <strong>PhantomTac uses a passive magnetic tag to perturb the magnetic field around a tactile sensor, thereby spoofing tactile feedback and hijacking closed-loop robotic manipulation.</strong>
-      </p>
+  <ul class="scenario-list">
+    <li><strong>Crushing:</strong> PhantomTac injects a negative normal force, delaying the tactile sensor’s reported force from reaching the predefined grasping threshold. As a result, the object is continuously squeezed and eventually damaged.</li>
+    <li><strong>Dropping:</strong> PhantomTac injects a positive normal force, causing the tactile sensor’s reported force to reach the predefined grasping threshold prematurely. As a result, the object is not firmly grasped and is dropped and damaged.</li>
+    <li><strong>Toppling:</strong> PhantomTac injects a negative normal force, causing the robot’s collision detection system to continuously determine that the vase has not been touched. As a result, the vase is subjected to sustained pushing force, tilts, and falls over.</li>
+    <li><strong>Stalling:</strong> PhantomTac injects a positive normal force, causing the robot’s collision detection system to prematurely determine that it has touched the vase. As a result, the robot cannot complete the subsequent task involving the vase.</li>
+  </ul>
 
-      <ul class="scenario-list">
-        <li><strong>Crushing:</strong> PhantomTac injects a negative normal force, delaying the tactile sensor’s reported force from reaching the predefined grasping threshold. As a result, the object is continuously squeezed and eventually damaged.</li>
-        <li><strong>Dropping:</strong> PhantomTac injects a positive normal force, causing the tactile sensor’s reported force to reach the predefined grasping threshold prematurely. As a result, the object is not firmly grasped and is dropped and damaged.</li>
-        <li><strong>Toppling:</strong> PhantomTac injects a negative normal force, causing the robot’s collision detection system to continuously determine that the vase has not been touched. As a result, the vase is subjected to sustained pushing force, tilts, and falls over.</li>
-        <li><strong>Stalling:</strong> PhantomTac injects a positive normal force, causing the robot’s collision detection system to prematurely determine that it has touched the vase. As a result, the robot cannot complete the subsequent task involving the vase.</li>
-      </ul>
-    </section>
+  <div class="my-8 h-px bg-line"></div>
+
+  <article class="overview-figure-card">
+    <div class="demo-video-frame" style="aspect-ratio: 16 / 9;">
+      <video
+        class="demo-video"
+        src="videos/phantomtac-deployment-demo.mp4?v=1"
+        controls
+        preload="metadata"
+        onloadeddata="this.style.display='block'; this.nextElementSibling.style.display='none';"
+        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+      ></video>
+      <div class="demo-placeholder">
+        Video placeholder<br />
+        Upload to <strong>videos/phantomtac-deployment-demo.mp4</strong>
+      </div>
+    </div>
+    <div class="sensor-demo-label">
+      Demonstration of PhantomTac tag deployment.
+    </div>
+  </article>
+
+  <p class="overview-caption">
+    The demo video shows how a PhantomTac tag can be deployed on the surface of an object. After deployment, the tag remains passive and battery-free, allowing it to perturb the magnetic field near the tactile sensor when the robot interacts with the tagged object.
+  </p>
+</section>
 
     <section id="demos" class="section-card">
       <div class="section-heading">
