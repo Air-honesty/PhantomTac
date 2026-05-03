@@ -1,968 +1,770 @@
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PhantomTac Artifact</title>
-  <meta name="description" content="Anonymous artifact page for PhantomTac: a physical-layer study of magnetic tactile sensor spoofing in robotic systems." />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            ink: "#0f172a",
-            muted: "#475569",
-            paper: "#ffffff",
-            line: "#e2e8f0",
-            accent: "#2563eb",
-            accentDark: "#1e40af"
-          },
-          boxShadow: {
-            soft: "0 20px 60px rgba(15, 23, 42, 0.08)"
-          }
-        }
-      }
-    };
-  </script>
-  <style>
-    body {
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      font-size: 17px;
-    }
+.glass {
+  backdrop-filter: blur(14px);
+  background: rgba(255, 255, 255, 0.82);
+}
 
-    .glass {
-      backdrop-filter: blur(14px);
-      background: rgba(255, 255, 255, 0.82);
-    }
+.hero-logo-wrap {
+  margin: 0 auto 1.5rem auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-    .hero-logo-wrap {
-      margin: 0 auto 1.5rem auto;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+.hero-logo {
+  max-width: min(920px, 98vw);
+  max-height: 280px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
 
-    .hero-logo {
-      max-width: min(920px, 98vw);
-      max-height: 280px;
-      width: auto;
-      height: auto;
-      object-fit: contain;
-    }
+.logo-placeholder {
+  width: min(920px, 98vw);
+  min-height: 220px;
+  border: 1px dashed #cbd5e1;
+  border-radius: 1.5rem;
+  background: #ffffff;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
 
-    .logo-placeholder {
-      width: min(920px, 98vw);
-      min-height: 220px;
-      border: 1px dashed #cbd5e1;
-      border-radius: 1.5rem;
-      background: #ffffff;
-      color: #64748b;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 1.5rem;
-      font-size: 1.05rem;
-      line-height: 1.65;
-    }
+.sensor-figure-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
 
-    .sensor-figure-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1.5rem;
-    }
+.sensor-figure-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 1.5rem;
+  background: #ffffff;
+  padding: 1rem;
+  overflow: hidden;
+}
 
-    .sensor-figure-card {
-      border: 1px solid #e2e8f0;
-      border-radius: 1.5rem;
-      background: #ffffff;
-      padding: 1rem;
-      overflow: hidden;
-    }
+.sensor-figure-frame {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  border-radius: 1rem;
+  background: #ffffff;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-    .sensor-figure-frame {
-      aspect-ratio: 16 / 9;
-      width: 100%;
-      border-radius: 1rem;
-      background: #ffffff;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+.sensor-figure {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: none;
+  background: #ffffff;
+}
 
-    .sensor-figure {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      display: none;
-      background: #ffffff;
-    }
+.sensor-placeholder {
+  width: 100%;
+  height: 100%;
+  border: 1px dashed #cbd5e1;
+  border-radius: 1rem;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+  font-size: 1rem;
+  line-height: 1.65;
+  background: #ffffff;
+}
 
-    .sensor-placeholder {
-      width: 100%;
-      height: 100%;
-      border: 1px dashed #cbd5e1;
-      border-radius: 1rem;
-      color: #64748b;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 1rem;
-      font-size: 1rem;
-      line-height: 1.65;
-      background: #ffffff;
-    }
+.sensor-figure-label {
+  margin-top: 0.85rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #334155;
+  text-align: center;
+  font-weight: 600;
+}
 
-    .sensor-figure-label {
-      margin-top: 0.85rem;
-      font-size: 1rem;
-      line-height: 1.6;
-      color: #334155;
-      text-align: center;
-      font-weight: 600;
-    }
+.sensor-demo-card {
+  margin-top: 1.5rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 1.5rem;
+  background: #ffffff;
+  padding: 1rem;
+  overflow: hidden;
+}
 
-    .sensor-demo-card {
-      margin-top: 1.5rem;
-      border: 1px solid #e2e8f0;
-      border-radius: 1.5rem;
-      background: #ffffff;
-      padding: 1rem;
-      overflow: hidden;
-    }
+.sensor-demo-video-frame {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  border-radius: 1rem;
+  background: #000000;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-    .sensor-demo-video-frame {
-      aspect-ratio: 16 / 9;
-      width: 100%;
-      border-radius: 1rem;
-      background: #000000;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+.sensor-demo-video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: none;
+  background: #000000;
+}
 
-    .sensor-demo-video {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      display: none;
-      background: #000000;
-    }
+.sensor-demo-placeholder {
+  width: 100%;
+  height: 100%;
+  border: 1px dashed #cbd5e1;
+  border-radius: 1rem;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  background: #ffffff;
+}
 
-    .sensor-demo-placeholder {
-      width: 100%;
-      height: 100%;
-      border: 1px dashed #cbd5e1;
-      border-radius: 1rem;
-      color: #64748b;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 1rem;
-      font-size: 1.05rem;
-      line-height: 1.65;
-      background: #ffffff;
-    }
+.sensor-demo-label {
+  margin-top: 0.85rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #334155;
+  text-align: center;
+  font-weight: 600;
+}
 
-    .sensor-demo-label {
-      margin-top: 0.85rem;
-      font-size: 1rem;
-      line-height: 1.6;
-      color: #334155;
-      text-align: center;
-      font-weight: 600;
-    }
+.sensor-caption {
+  margin-top: 1.2rem;
+  color: #475569;
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  text-align: center;
+}
 
-    .sensor-caption {
-      margin-top: 1.2rem;
-      color: #475569;
-      font-size: 1.0625rem;
-      line-height: 1.8;
-      text-align: center;
-    }
+.overview-figure-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 1.5rem;
+  background: #ffffff;
+  padding: 1rem;
+  overflow: hidden;
+}
 
-    .overview-figure-card {
-      border: 1px solid #e2e8f0;
-      border-radius: 1.5rem;
-      background: #ffffff;
-      padding: 1rem;
-      overflow: hidden;
-    }
+.overview-figure-frame {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  border-radius: 1rem;
+  background: #ffffff;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-    .overview-figure-frame {
-      aspect-ratio: 16 / 9;
-      width: 100%;
-      border-radius: 1rem;
-      background: #ffffff;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+.overview-figure {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: none;
+  background: #ffffff;
+}
 
-    .overview-figure {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      display: none;
-      background: #ffffff;
-    }
+.overview-placeholder {
+  width: 100%;
+  height: 100%;
+  border: 1px dashed #cbd5e1;
+  border-radius: 1rem;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  background: #ffffff;
+}
 
-    .overview-placeholder {
-      width: 100%;
-      height: 100%;
-      border: 1px dashed #cbd5e1;
-      border-radius: 1rem;
-      color: #64748b;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 1rem;
-      font-size: 1.05rem;
-      line-height: 1.65;
-      background: #ffffff;
-    }
+.overview-caption {
+  margin-top: 1rem;
+  color: #475569;
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  text-align: center;
+}
 
-    .overview-caption {
-      margin-top: 1rem;
-      color: #475569;
-      font-size: 1.0625rem;
-      line-height: 1.8;
-      text-align: center;
-    }
+.scenario-list {
+  margin-top: 1.5rem;
+  padding-left: 1.25rem;
+  color: #334155;
+  font-size: 1.0625rem;
+  line-height: 1.85;
+}
 
-    .scenario-list {
-      margin-top: 1.5rem;
-      padding-left: 1.25rem;
-      color: #334155;
-      font-size: 1.0625rem;
-      line-height: 1.85;
-    }
+.scenario-list li {
+  margin-top: 0.5rem;
+}
 
-    .scenario-list li {
-      margin-top: 0.5rem;
-    }
+.scenario-list strong {
+  color: #0f172a;
+  font-weight: 800;
+}
 
-    .scenario-list strong {
-      color: #0f172a;
-      font-weight: 800;
-    }
+.demo-group {
+  margin-top: 2rem;
+}
 
-    .demo-group {
-      margin-top: 2rem;
-    }
+.demo-group:first-of-type {
+  margin-top: 0;
+}
 
-    .demo-group:first-of-type {
-      margin-top: 0;
-    }
+.demo-group-title {
+  margin-bottom: 1rem;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  font-weight: 900;
+  color: #0f172a;
+}
 
-    .demo-group-title {
-      margin-bottom: 1rem;
-      font-size: 1.125rem;
-      line-height: 1.75rem;
-      font-weight: 900;
-      color: #0f172a;
-    }
+.demo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
 
-    .demo-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1rem;
-    }
+.demo-card {
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  border-radius: 1.5rem;
+  background: #ffffff;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+}
 
-    .demo-card {
-      overflow: hidden;
-      border: 1px solid #e2e8f0;
-      border-radius: 1.5rem;
-      background: #ffffff;
-      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
-    }
+.demo-video-frame {
+  aspect-ratio: 4 / 3;
+  width: 100%;
+  background: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
 
-    .demo-video-frame {
-      aspect-ratio: 4 / 3;
-      width: 100%;
-      background: #000000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
+.demo-video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: none;
+  background: #000000;
+}
 
-    .demo-video {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      display: none;
-      background: #000000;
-    }
+.demo-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  text-align: center;
+  color: #64748b;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  background: #ffffff;
+}
 
-    .demo-placeholder {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 1rem;
-      text-align: center;
-      color: #64748b;
-      font-size: 0.95rem;
-      line-height: 1.6;
-      background: #ffffff;
-    }
+.section-card {
+  scroll-margin-top: 6rem;
+  margin-top: 4rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 1.5rem;
+  background: #ffffff;
+  padding: 2.5rem;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+}
 
-    .section-card {
-      scroll-margin-top: 6rem;
-      margin-top: 4rem;
-      border: 1px solid #e2e8f0;
-      border-radius: 1.5rem;
-      background: #ffffff;
-      padding: 2.5rem;
-      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
-    }
+.section-card:first-child {
+  margin-top: 0;
+}
 
-    .section-card:first-child {
-      margin-top: 0;
-    }
+.section-heading {
+  margin-bottom: 1.5rem;
+}
 
-    .section-heading {
-      margin-bottom: 1.5rem;
-    }
+.section-heading h2 {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  font-weight: 900;
+  letter-spacing: -0.025em;
+  color: #0f172a;
+}
 
-    .section-heading h2 {
-      font-size: 1.875rem;
-      line-height: 2.25rem;
-      font-weight: 900;
-      letter-spacing: -0.025em;
-      color: #0f172a;
-    }
+.title-line {
+  width: 100%;
+  height: 1px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  background: #e2e8f0;
+}
 
-    .title-line {
-      width: 100%;
-      height: 1px;
-      margin-top: 1rem;
-      margin-bottom: 1rem;
-      background: #e2e8f0;
-    }
+.section-intro {
+  width: 100%;
+  max-width: none;
+  color: #475569;
+  font-size: 1.0625rem;
+  line-height: 1.8;
+}
 
-    .section-intro {
-      width: 100%;
-      max-width: none;
-      color: #475569;
-      font-size: 1.0625rem;
-      line-height: 1.8;
-    }
+.section-card p,
+.section-card li {
+  font-size: 1.0625rem;
+  line-height: 1.8;
+}
 
-    .section-card p,
-    .section-card li {
-      font-size: 1.0625rem;
-      line-height: 1.8;
-    }
+.demo-card p,
+.download-card p {
+  font-size: 1rem;
+  line-height: 1.7;
+}
 
-    .demo-card p,
-    .download-card p {
-      font-size: 1rem;
-      line-height: 1.7;
-    }
+.info-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 1.5rem;
+  background: #ffffff;
+  padding: 1.5rem;
+}
 
-    .info-card {
-      border: 1px solid #e2e8f0;
-      border-radius: 1.5rem;
-      background: #ffffff;
-      padding: 1.5rem;
-    }
+.download-card {
+  display: block;
+  border: 1px solid #e2e8f0;
+  border-radius: 1.5rem;
+  background: #ffffff;
+  padding: 1.5rem;
+  transition: transform 160ms ease, border-color 160ms ease, background 160ms ease, box-shadow 160ms ease;
+}
 
-    .download-card {
-      display: block;
-      border: 1px solid #e2e8f0;
-      border-radius: 1.5rem;
-      background: #ffffff;
-      padding: 1.5rem;
-      transition: transform 160ms ease, border-color 160ms ease, background 160ms ease, box-shadow 160ms ease;
-    }
+.download-card:hover {
+  transform: translateY(-0.25rem);
+  border-color: #2563eb;
+  background: #ffffff;
+  box-shadow: 0 20px 60px rgba(15, 23, 42, 0.08);
+}
 
-    .download-card:hover {
-      transform: translateY(-0.25rem);
-      border-color: #2563eb;
-      background: #ffffff;
-      box-shadow: 0 20px 60px rgba(15, 23, 42, 0.08);
-    }
+@media (max-width: 768px) {
+  .section-card {
+    padding: 1.75rem;
+  }
 
-    @media (max-width: 768px) {
-      .section-card {
-        padding: 1.75rem;
-      }
+  .logo-placeholder {
+    width: min(98vw, 100%);
+    min-height: 140px;
+  }
 
-      .logo-placeholder {
-        width: min(98vw, 100%);
-        min-height: 140px;
-      }
+  .hero-logo {
+    max-width: 98vw;
+    max-height: 190px;
+  }
 
-      .hero-logo {
-        max-width: 98vw;
-        max-height: 190px;
-      }
+  .sensor-figure-grid {
+    grid-template-columns: 1fr;
+  }
 
-      .sensor-figure-grid {
-        grid-template-columns: 1fr;
-      }
+  .demo-grid {
+    grid-template-columns: 1fr;
+  }
+}
 
-      .demo-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
-</head>
-
-<body class="bg-white text-ink antialiased">
-  <nav class="glass fixed inset-x-0 top-0 z-50 border-b border-line">
-    <div class="mx-auto flex max-w-6xl items-center justify-between px-5 py-3">
-      <a href="#top" class="flex items-center gap-3 font-semibold tracking-tight text-ink">
-        <span class="flex h-9 w-9 items-center justify-center rounded-xl bg-ink text-white shadow-sm">PT</span>
-        <span>PhantomTac Artifact</span>
-      </a>
-
-      <div class="hidden items-center gap-6 text-sm font-medium text-muted md:flex">
-        <a class="hover:text-accent" href="#abstract">Abstract</a>
-        <a class="hover:text-accent" href="#magnetic-tactile-sensors">Sensors</a>
-        <a class="hover:text-accent" href="#overview">Overview</a>
-        <a class="hover:text-accent" href="#demos">Demos</a>
-        <a class="hover:text-accent" href="#qa">Q&A</a>
-        <a class="hover:text-accent" href="#datasets">Datasets</a>
-      </div>
-
-      <a href="#datasets" class="rounded-full bg-ink px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-accentDark">
-        Download
-      </a>
-    </div>
-  </nav>
-
-  <header id="top" class="relative overflow-hidden pt-28">
-    <div class="mx-auto max-w-5xl px-5 pb-16 pt-4 text-center">
-      <div class="hero-logo-wrap">
-        <img
-          src="figures/phantomtac-logo.png?v=2"
-          alt="PhantomTac logo"
-          class="hero-logo"
-          onload="this.style.display='block'; this.nextElementSibling.style.display='none';"
-          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-        />
-        <div class="logo-placeholder">
-          Logo placeholder<br />
-          Upload your logo to <strong>figures/phantomtac-logo.png</strong> and it will appear here automatically.
-        </div>
-      </div>
-
-      <h1 class="mx-auto max-w-5xl text-4xl font-black leading-tight tracking-tight text-ink md:text-6xl">
-        PhantomTac: Hijacking Robotic Tactile Systems with Deploy-and-forget Tags
-      </h1>
-    </div>
-  </header>
-
-  <main class="mx-auto max-w-6xl px-5 pb-24">
-    <section id="abstract" class="section-card">
-      <div class="section-heading">
-        <h2>Abstract</h2>
-        <div class="title-line"></div>
-      </div>
-
-      <div class="space-y-5 text-justify text-base leading-8 text-slate-700">
-        <p>
-          Tactile perception is crucial for precise robotic manipulation and robotic arm grasping, providing an important foundation for dexterous, closed-loop force control. Among various tactile sensing techniques, magnetic tactile sensors stand out thanks to their fine-grained, three-dimensional force perception capability and strong robustness against visual occlusion. In this study, we discover a physical loophole called <strong>PhantomTac</strong> in magnetic tactile sensors. The attacker can alter the magnetic field, thus spoofing the force interpreted by magnetic tactile sensors. The attacker can stealthily deploy such an attack by simply attaching a thin (the thickness is around 0.5 mm), battery-free magnetic tag to the surface of an object. Hence, the attack tag can be easily concealed by a barcode sticker. Such an attack scheme is ``deploy-and-forget'' --- the attack can deploy the tag and leave. When a robotic hand is picking up an object, it may severely damage the object. Specifically, spoofing the normal force can crush the object, whereas shear force spoofing can lead to a loose grip, thus dropping the object. Compared with directly sabotaging the robotic hand, <strong>PhantomTac</strong> is much more concealed as the attacker does not need access to the device. We performed extensive reverse-engineering efforts to characterize the sensing mechanism of commercial-off-the-shelf tactile sensors and proposed a practical tag design. End-to-end evaluations conducted on real robots and robotic arms demonstrate that our attack can bypass existing anti-interference mechanisms and effectively hijack their closed-loop control processes, achieving an attack success rate exceeding 95% when the grasping error tolerance is bounded within 8 mm. Finally, based on the limitations of existing anti-magnetic interference mechanisms, we propose and evaluate a novel defense mechanism to effectively mitigate such physical-layer security threats.
-        </p>
-      </div>
-    </section>
-
-    <section id="magnetic-tactile-sensors" class="section-card">
-  <div class="section-heading">
-    <h2>Magnetic tactile sensors</h2>
-    <div class="title-line"></div>
+  <div class="hidden items-center gap-6 text-sm font-medium text-muted md:flex">
+    <a class="hover:text-accent" href="#abstract">Abstract</a>
+    <a class="hover:text-accent" href="#magnetic-tactile-sensors">Sensors</a>
+    <a class="hover:text-accent" href="#overview">Overview</a>
+    <a class="hover:text-accent" href="#demos">Demos</a>
+    <a class="hover:text-accent" href="#qa">Q&A</a>
+    <a class="hover:text-accent" href="#datasets">Datasets</a>
   </div>
 
-  <div class="sensor-figure-grid">
-    <article class="sensor-demo-card">
-  <div class="sensor-demo-video-frame">
-    <video
-      class="sensor-demo-video"
-      src="videos/magnetic-tactile-sensor-demo.mp4?v=4"
-      controls
-      preload="metadata"
-      onloadeddata="this.style.display='block'; this.nextElementSibling.style.display='none';"
-      onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-    ></video>
-    <div class="sensor-demo-placeholder">
-      Video placeholder<br />
-      Upload to <strong>videos/magnetic-tactile-sensor-demo.mp4</strong>
-    </div>
-  </div>
-  <div class="sensor-demo-label">
-    Demonstration of magnetic tactile sensor responses during physical contact.
-  </div>
-</article>
+  <a href="#datasets" class="rounded-full bg-ink px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-accentDark">
+    Download
+  </a>
+</div>
 
-<article class="video-related-image-card">
-  <div class="video-related-image-frame">
+  <h1 class="mx-auto max-w-5xl text-4xl font-black leading-tight tracking-tight text-ink md:text-6xl">
+    PhantomTac: Hijacking Robotic Tactile Systems with Deploy-and-forget Tags
+  </h1>
+</div>
+
+  <div class="space-y-5 text-justify text-base leading-8 text-slate-700">
+    <p>
+      Tactile perception is crucial for precise robotic manipulation and robotic arm grasping, providing an important foundation for dexterous, closed-loop force control. Among various tactile sensing techniques, magnetic tactile sensors stand out thanks to their fine-grained, three-dimensional force perception capability and strong robustness against visual occlusion. In this study, we discover a physical loophole called <strong>PhantomTac</strong> in magnetic tactile sensors. The attacker can alter the magnetic field, thus spoofing the force interpreted by magnetic tactile sensors. The attacker can stealthily deploy such an attack by simply attaching a thin (the thickness is around 0.5 mm), battery-free magnetic tag to the surface of an object. Hence, the attack tag can be easily concealed by a barcode sticker. Such an attack scheme is ``deploy-and-forget'' --- the attack can deploy the tag and leave. When a robotic hand is picking up an object, it may severely damage the object. Specifically, spoofing the normal force can crush the object, whereas shear force spoofing can lead to a loose grip, thus dropping the object. Compared with directly sabotaging the robotic hand, <strong>PhantomTac</strong> is much more concealed as the attacker does not need access to the device. We performed extensive reverse-engineering efforts to characterize the sensing mechanism of commercial-off-the-shelf tactile sensors and proposed a practical tag design. End-to-end evaluations conducted on real robots and robotic arms demonstrate that our attack can bypass existing anti-interference mechanisms and effectively hijack their closed-loop control processes, achieving an attack success rate exceeding 95% when the grasping error tolerance is bounded within 8 mm. Finally, based on the limitations of existing anti-magnetic interference mechanisms, we propose and evaluate a novel defense mechanism to effectively mitigate such physical-layer security threats.
+    </p>
+  </div>
+</section>
+
+<section id="magnetic-tactile-sensors" class="section-card">
+
+<article class="sensor-figure-card">
+  <div class="sensor-figure-frame">
     <img
-      src="figures/magnetic-tactile-sensor-demo-image.png?v=1"
-      alt="Magnetic tactile sensor response during physical contact"
-      class="video-related-image"
+      src="figures/magnetic-tactile-principle.png?v=2"
+      alt="Structure of a commercial magnetic tactile sensor"
+      class="sensor-figure"
       onload="this.style.display='block'; this.nextElementSibling.style.display='none';"
       onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
     />
-    <div class="video-related-image-placeholder">
-      Image placeholder<br />
-      Upload to <strong>figures/magnetic-tactile-sensor-demo-image.png</strong>
+    <div class="sensor-placeholder">
+      Principle image placeholder<br />
+      Upload to <strong>figures/magnetic-tactile-principle.png</strong>
     </div>
   </div>
-  <div class="video-related-image-label">
-    Representative frames of magnetic tactile sensor responses during physical contact.
-  </div>
+  <div class="sensor-figure-label">(b) Inside view of PaXini PX6AX-GEN3-MC-M2020-Elite.</div>
 </article>
 
-<p class="sensor-caption">
-  The demo video shows the real use of a magnetic tactile sensor (PX6AX-GEN3-MC-M2020-Elite). It demonstrates the real-time response to physical contact. When the sensor is pressed, the system reports force variations along multiple axes.
-</p>
+<section id="overview" class="section-card">
 
-  <div class="my-8 h-px bg-line"></div>
+<section id="demos" class="section-card">
+  <div class="section-heading">
+    <h2>End-to-end demos</h2>
+    <div class="title-line"></div>
+    <p class="section-intro">
+      The following six demo videos show tactile feedback under normal conditions and representative physical consequences caused by spoofed tactile feedback. The experiments in the first group are conducted on the Dofbot-pi4B platform, while those in the second group are conducted on the Unitree G1 platform.
+    </p>
+  </div>
 
-  <article class="sensor-demo-card">
-    <div class="sensor-demo-video-frame">
-      <video
-        class="sensor-demo-video"
-        src="videos/magnetic-tactile-sensor-demo.mp4?v=4"
-        controls
-        preload="metadata"
-        onloadeddata="this.style.display='block'; this.nextElementSibling.style.display='none';"
-        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-      ></video>
-      <div class="sensor-demo-placeholder">
-        Video placeholder<br />
-        Upload to <strong>videos/magnetic-tactile-sensor-demo.mp4</strong>
-      </div>
+  <div class="demo-group">
+    <h3 class="demo-group-title">Dofbot-pi4B</h3>
+    <div class="demo-grid">
+      <article class="demo-card">
+        <div class="demo-video-frame">
+          <video class="demo-video" src="videos/arm-demo-1.mp4?v=3" controls preload="metadata" onloadeddata="this.style.display='block'; this.nextElementSibling.style.display='none';" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"></video>
+          <div class="demo-placeholder">Video placeholder<br />Upload to <strong>videos/arm-demo-1.mp4</strong></div>
+        </div>
+        <div class="p-5">
+          <h4 class="text-base font-bold">Dofbot-pi4B demo I: Benign condition</h4>
+          <p class="mt-2 text-sm leading-6 text-muted">
+            <strong>Without PhantomTac.</strong> The robotic arm completes the grasping task normally. (The object is well-preserved)
+          </p>
+        </div>
+      </article>
+
+      <article class="demo-card">
+        <div class="demo-video-frame">
+          <video class="demo-video" src="videos/arm-demo-2.mp4?v=3" controls preload="metadata" onloadeddata="this.style.display='block'; this.nextElementSibling.style.display='none';" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"></video>
+          <div class="demo-placeholder">Video placeholder<br />Upload to <strong>videos/arm-demo-2.mp4</strong></div>
+        </div>
+        <div class="p-5">
+          <h4 class="text-base font-bold">Dofbot-pi4B demo II: Positive normal force injection</h4>
+          <p class="mt-2 text-sm leading-6 text-muted">
+            <strong>With PhantomTac.</strong> The robotic arm stops clamping in advance. (The object is dropped)
+          </p>
+        </div>
+      </article>
+
+      <article class="demo-card">
+        <div class="demo-video-frame">
+          <video class="demo-video" src="videos/arm-demo-3.mp4?v=2" controls preload="metadata" onloadeddata="this.style.display='block'; this.nextElementSibling.style.display='none';" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"></video>
+          <div class="demo-placeholder">Video placeholder<br />Upload to <strong>videos/arm-demo-3.mp4</strong></div>
+        </div>
+        <div class="p-5">
+          <h4 class="text-base font-bold">Dofbot-pi4B demo III: Negative normal force injection</h4>
+          <p class="mt-2 text-sm leading-6 text-muted">
+            <strong>With PhantomTac.</strong> The robotic arm delays stopping the clamp. (The object is crushed)
+          </p>
+        </div>
+      </article>
     </div>
-    <div class="sensor-demo-label">
-      Demonstration of magnetic tactile sensor responses during physical contact.
+  </div>
+
+  <div class="demo-group">
+    <h3 class="demo-group-title">Unitree G1</h3>
+    <div class="demo-grid">
+      <article class="demo-card">
+        <div class="demo-video-frame">
+          <video class="demo-video" src="videos/robot-demo-1.mp4?v=2" controls preload="metadata" onloadeddata="this.style.display='block'; this.nextElementSibling.style.display='none';" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"></video>
+          <div class="demo-placeholder">Video placeholder<br />Upload to <strong>videos/robot-demo-1.mp4</strong></div>
+        </div>
+        <div class="p-5">
+          <h4 class="text-base font-bold">Unitree G1 demo I: Benign condition</h4>
+          <p class="mt-2 text-sm leading-6 text-muted">
+            <strong>Without PhantomTac.</strong> The robot completes collision detection normally. (Normal contact with the vase)
+          </p>
+        </div>
+      </article>
+
+      <article class="demo-card">
+        <div class="demo-video-frame">
+          <video class="demo-video" src="videos/robot-demo-2.mp4?v=3" controls preload="metadata" onloadeddata="this.style.display='block'; this.nextElementSibling.style.display='none';" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"></video>
+          <div class="demo-placeholder">Video placeholder<br />Upload to <strong>videos/robot-demo-2.mp4</strong></div>
+        </div>
+        <div class="p-5">
+          <h4 class="text-base font-bold">Unitree G1 demo II: Positive normal force injection</h4>
+          <p class="mt-2 text-sm leading-6 text-muted">
+            <strong>With PhantomTac.</strong> The robot perceives the collision in advance. (Unable to complete subsequent tasks)
+          </p>
+        </div>
+      </article>
+
+      <article class="demo-card">
+        <div class="demo-video-frame">
+          <video class="demo-video" src="videos/robot-demo-3.mp4?v=2" controls preload="metadata" onloadeddata="this.style.display='block'; this.nextElementSibling.style.display='none';" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"></video>
+          <div class="demo-placeholder">Video placeholder<br />Upload to <strong>videos/robot-demo-3.mp4</strong></div>
+        </div>
+        <div class="p-5">
+          <h4 class="text-base font-bold">Unitree G1 demo III: Negative normal force injection</h4>
+          <p class="mt-2 text-sm leading-6 text-muted">
+            <strong>With PhantomTac.</strong> The robot perceives the collision with a delay. (The vase topples)
+          </p>
+        </div>
+      </article>
     </div>
-  </article>
-
-  <p class="sensor-caption">
-    The demo video shows the real use of a magnetic tactile sensor (PX6AX-GEN3-MC-M2020-Elite). It demonstrates the real-time response to physical contact. When the sensor is pressed, the system reports force variations along multiple axes.
-
-  </p>
+  </div>
 </section>
 
-    <section id="overview" class="section-card">
+<section id="qa" class="section-card">
   <div class="section-heading">
-    <h2>Attack overview</h2>
+    <h2>Q&A</h2>
     <div class="title-line"></div>
   </div>
 
-  <article class="overview-figure-card">
-  <div class="demo-video-frame" style="aspect-ratio: 16 / 9;">
-    <video
-      class="demo-video"
-      src="videos/Phantomtac-deployment-demo.mp4?v=4"
-      controls
-      preload="metadata"
-      onloadeddata="this.style.display='block'; this.nextElementSibling.style.display='none';"
-      onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-    ></video>
-    <div class="demo-placeholder">
-      Video placeholder<br />
-      Upload to <strong>videos/Phantomtac-deployment-demo.mp4</strong>
-    </div>
+  <div class="divide-y divide-line">
+    <details class="group py-5" open>
+      <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-bold">
+        Which tactile sensors are affected by this vulnerability?
+        <span class="text-muted transition group-open:rotate-45">+</span>
+      </summary>
+      <p class="mt-3 leading-7 text-muted">
+        We evaluated products from two mainstream magnetic tactile sensor vendors, including XELA uSPa 46 and PaXini PX6AX-GEN3-MC-M2020-Elite, PX6AX-GEN3-IP-S1610-Elite, and PX6AX-GEN3-DP-S2015-Elite. All tested sensors are vulnerable to PhantomTac attacks.
+      </p>
+    </details>
+
+    <details class="group py-5">
+      <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-bold">
+        Can visual monitoring detect the deployed tags?
+        <span class="text-muted transition group-open:rotate-45">+</span>
+      </summary>
+      <p class="mt-3 leading-7 text-muted">
+        PhantomTac may introduce a slight protrusion because it deploys small magnets. In theory, existing visual inspection systems could detect such protrusions. However, deploying such a visual inspection system would be extremely costly.
+      </p>
+    </details>
+
+    <details class="group py-5">
+      <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-bold">
+        What consequences does PhantomTac cause?
+        <span class="text-muted transition group-open:rotate-45">+</span>
+      </summary>
+      <p class="mt-3 leading-7 text-muted">
+        PhantomTac can inject both normal or shear forces into magnetic tactile sensors, thereby hijacking tactile-feedback-based closed-loop force control in robots or robotic arms. This prevents the system from accurately interpreting contact forces and can lead to object damage. For example, the robot may continuously apply excessive pressure and crush the object, or it may start transporting the object before achieving a stable grasp, causing the object to be dropped and damaged.
+      </p>
+    </details>
+
+    <details class="group py-5">
+      <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-bold">
+        How to defend against PhantomTac?
+        <span class="text-muted transition group-open:rotate-45">+</span>
+      </summary>
+      <p class="mt-3 leading-7 text-muted">
+        A basic defense is to cross-check tactile readings with independent robot proprioceptive signals, such as joint torques, gripper motor currents, end-effector motion, and gripper velocity. Real contact should cause consistent changes across these signals. If the tactile sensor reports contact without corresponding motion or load changes, the system can flag it as false contact. Conversely, if proprioceptive signals indicate contact while tactile readings remain low, the system can stop further force increase or enter a safe recovery mode.
+      </p>
+    </details>
   </div>
-  <div class="sensor-demo-label">
-    Demonstration of PhantomTac deployment.
-  </div>
-</article>
-
-<p class="overview-caption">
-  The demo video shows the camouflage surface, the miniature magnet-array surface, the side view, and a close-up view of PhantomTac after deployment. The camouflage surface can take the form of common stickers, such as a QR code, blank paper, a shipping label, or a cartoon sticker. The magnet-array surface is used to arrange miniature magnets to generate a specific magnetic field and inject targeted spoofed forces. The side view shows that PhantomTac can be as thin as a piece of paper. In the close-up view after deployment, PhantomTac does not introduce an obvious protrusion and appears similar to a normal sticker. These properties make PhantomTac highly easy to disguise and deploy.
-</p>
-
-  <ul class="scenario-list">
-    <li><strong>Crushing:</strong> PhantomTac injects a negative normal force, delaying the tactile sensor’s reported force from reaching the predefined grasping threshold. As a result, the object is continuously squeezed and eventually damaged.</li>
-    <li><strong>Dropping:</strong> PhantomTac injects a positive normal force, causing the tactile sensor’s reported force to reach the predefined grasping threshold prematurely. As a result, the object is not firmly grasped and is dropped and damaged.</li>
-    <li><strong>Toppling:</strong> PhantomTac injects a negative normal force, causing the robot’s collision detection system to continuously determine that the vase has not been touched. As a result, the vase is subjected to sustained pushing force, tilts, and falls over.</li>
-    <li><strong>Stalling:</strong> PhantomTac injects a positive normal force, causing the robot’s collision detection system to prematurely determine that it has touched the vase. As a result, the robot cannot complete the subsequent task involving the vase.</li>
-  </ul>
-
-  <div class="my-8 h-px bg-line"></div>
-
-  <article class="overview-figure-card">
-    <div class="demo-video-frame" style="aspect-ratio: 16 / 9;">
-      <video
-        class="demo-video"
-        src="videos/Phantomtac-deployment-demo.mp4?v=4"
-        controls
-        preload="metadata"
-        onloadeddata="this.style.display='block'; this.nextElementSibling.style.display='none';"
-        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-      ></video>
-      <div class="demo-placeholder">
-        Video placeholder<br />
-        Upload to <strong>videos/Phantomtac-deployment-demo.mp4</strong>
-      </div>
-    </div>
-    <div class="sensor-demo-label">
-      Demonstration of PhantomTac deployment.
-    </div>
-  </article>
-
-  <p class="overview-caption">
-    The demo video shows the camouflage surface, the miniature magnet-array surface, the side view, and a close-up view of PhantomTac after deployment. The camouflage surface can take the form of common stickers, such as a QR code, blank paper, a shipping label, or a cartoon sticker. The magnet-array surface is used to arrange miniature magnets to generate a specific magnetic field and inject targeted spoofed forces. The side view shows that PhantomTac can be as thin as a piece of paper. In the close-up view after deployment, PhantomTac does not introduce an obvious protrusion and appears similar to a normal sticker. These properties make PhantomTac highly easy to disguise and deploy.
-  </p>
 </section>
 
-    <section id="demos" class="section-card">
-      <div class="section-heading">
-        <h2>End-to-end demos</h2>
-        <div class="title-line"></div>
-        <p class="section-intro">
-          The following six demo videos show tactile feedback under normal conditions and representative physical consequences caused by spoofed tactile feedback. The experiments in the first group are conducted on the Dofbot-pi4B platform, while those in the second group are conducted on the Unitree G1 platform.
-        </p>
-      </div>
+<section id="datasets" class="section-card">
+  <div class="section-heading">
+    <h2>Datasets & source code</h2>
+    <div class="title-line"></div>
+    <p class="section-intro">
+      The following files are provided for artifact review. The usage is as follows:
+    </p>
+    
+    <ul class="scenario-list">
+    <li><strong>Dataset 01-02:</strong> The dataset collected through reverse engineering is used to plot spatial heatmaps for the three-dimensional forces (using MATLAB script). It is also applied to RBF data fitting (using Python script 01) and RBF model blind testing (using Python script 02).</li>
+    <li><strong>Dataset 03-05:</strong> Normal force data acquired in the end-to-end experiments of Dofbot-pi4B. Dataset 03, benign condition. Dataset 04, positive normal force injection. Dataset 05, negative normal force injection.</li>
+    <li><strong>Dataset 06-08:</strong> Normal force data acquired in the end-to-end experiments of Unitree G1. Dataset 04, benign condition. Dataset 06, positive normal force injection. Dataset 08, negative normal force injection.</li>
+    <li><strong>Python script 01:</strong> RBF data fitting source code. Construct the RBF model and generate a .pkl file (using Dataset 01–02).</li>
+    <li><strong>Python script 02:</strong> RBF model blind test source code. Construct the RBF model and perform blind testing to validate its effectiveness (using Dataset 01–02).</li>
+    <li><strong>Python script 03:</strong> Contour plot code for Fx, Fy and Fz based on the RBF model. Generate contour plots for Fx, Fy and Fz at arbitrary heights from 0 to 2 mm (using the .pkl file generated by Python Script 01).</li>
+    <li><strong>MATLAB script:</strong> Source code for plotting spatial heatmaps of three-dimensional forces (using Dataset 01–02).</li>
+    </ul>
+    
+  </div>
 
-      <div class="demo-group">
-        <h3 class="demo-group-title">Dofbot-pi4B</h3>
-        <div class="demo-grid">
-          <article class="demo-card">
-            <div class="demo-video-frame">
-              <video class="demo-video" src="videos/arm-demo-1.mp4?v=4" controls preload="metadata" onloadeddata="this.style.display='block'; this.nextElementSibling.style.display='none';" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"></video>
-              <div class="demo-placeholder">Video placeholder<br />Upload to <strong>videos/arm-demo-1.mp4</strong></div>
-            </div>
-            <div class="p-5">
-              <h4 class="text-base font-bold">Dofbot-pi4B demo I: Benign condition</h4>
-              <p class="mt-2 text-sm leading-6 text-muted">
-                <strong>Without PhantomTac.</strong> The robotic arm completes the grasping task normally. (The object is well-preserved)
-              </p>
-            </div>
-          </article>
-
-          <article class="demo-card">
-            <div class="demo-video-frame">
-              <video class="demo-video" src="videos/arm-demo-2.mp4?v=4" controls preload="metadata" onloadeddata="this.style.display='block'; this.nextElementSibling.style.display='none';" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"></video>
-              <div class="demo-placeholder">Video placeholder<br />Upload to <strong>videos/arm-demo-2.mp4</strong></div>
-            </div>
-            <div class="p-5">
-              <h4 class="text-base font-bold">Dofbot-pi4B demo II: Positive normal force injection</h4>
-              <p class="mt-2 text-sm leading-6 text-muted">
-                <strong>With PhantomTac.</strong> The robotic arm stops clamping in advance. (The object is dropped)
-              </p>
-            </div>
-          </article>
-
-          <article class="demo-card">
-            <div class="demo-video-frame">
-              <video class="demo-video" src="videos/arm-demo-3.mp4?v=4" controls preload="metadata" onloadeddata="this.style.display='block'; this.nextElementSibling.style.display='none';" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"></video>
-              <div class="demo-placeholder">Video placeholder<br />Upload to <strong>videos/arm-demo-3.mp4</strong></div>
-            </div>
-            <div class="p-5">
-              <h4 class="text-base font-bold">Dofbot-pi4B demo III: Negative normal force injection</h4>
-              <p class="mt-2 text-sm leading-6 text-muted">
-                <strong>With PhantomTac.</strong> The robotic arm delays stopping the clamp. (The object is crushed)
-              </p>
-            </div>
-          </article>
+  <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+    <a href="data/Sensor_reverse_engineering_data_2.5mm.xlsx" download="Sensor_reverse_engineering_data_2.5mm.xlsx" class="download-card">
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <p class="text-xs font-bold uppercase tracking-wide text-accent">Dataset</p>
+          <h3 class="mt-2 text-lg font-black text-ink">Dataset 01</h3>
         </div>
+        <span class="rounded-full bg-white px-3 py-1 text-xs font-bold text-muted shadow-sm">XLSX</span>
       </div>
+      <p class="mt-3 text-sm leading-6 text-muted">
+        The dataset obtained by reverse engineering with a 2.5 mm diameter magnet.
+      </p>
+      <p class="mt-5 text-sm font-bold text-accent">Download →</p>
+    </a>
 
-      <div class="demo-group">
-        <h3 class="demo-group-title">Unitree G1</h3>
-        <div class="demo-grid">
-          <article class="demo-card">
-            <div class="demo-video-frame">
-              <video class="demo-video" src="videos/robot-demo-1.mp4?v=4" controls preload="metadata" onloadeddata="this.style.display='block'; this.nextElementSibling.style.display='none';" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"></video>
-              <div class="demo-placeholder">Video placeholder<br />Upload to <strong>videos/robot-demo-1.mp4</strong></div>
-            </div>
-            <div class="p-5">
-              <h4 class="text-base font-bold">Unitree G1 demo I: Benign condition</h4>
-              <p class="mt-2 text-sm leading-6 text-muted">
-                <strong>Without PhantomTac.</strong> The robot completes collision detection normally. (Normal contact with the vase)
-              </p>
-            </div>
-          </article>
-
-          <article class="demo-card">
-            <div class="demo-video-frame">
-              <video class="demo-video" src="videos/robot-demo-2.mp4?v=4" controls preload="metadata" onloadeddata="this.style.display='block'; this.nextElementSibling.style.display='none';" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"></video>
-              <div class="demo-placeholder">Video placeholder<br />Upload to <strong>videos/robot-demo-2.mp4</strong></div>
-            </div>
-            <div class="p-5">
-              <h4 class="text-base font-bold">Unitree G1 demo II: Positive normal force injection</h4>
-              <p class="mt-2 text-sm leading-6 text-muted">
-                <strong>With PhantomTac.</strong> The robot perceives the collision in advance. (Unable to complete subsequent tasks)
-              </p>
-            </div>
-          </article>
-
-          <article class="demo-card">
-            <div class="demo-video-frame">
-              <video class="demo-video" src="videos/robot-demo-3.mp4?v=4" controls preload="metadata" onloadeddata="this.style.display='block'; this.nextElementSibling.style.display='none';" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"></video>
-              <div class="demo-placeholder">Video placeholder<br />Upload to <strong>videos/robot-demo-3.mp4</strong></div>
-            </div>
-            <div class="p-5">
-              <h4 class="text-base font-bold">Unitree G1 demo III: Negative normal force injection</h4>
-              <p class="mt-2 text-sm leading-6 text-muted">
-                <strong>With PhantomTac.</strong> The robot perceives the collision with a delay. (The vase topples)
-              </p>
-            </div>
-          </article>
+    <a href="data/Sensor_reverse_engineering_data_3mm.xlsx" download="Sensor_reverse_engineering_data_3mm.xlsx" class="download-card">
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <p class="text-xs font-bold uppercase tracking-wide text-accent">Dataset</p>
+          <h3 class="mt-2 text-lg font-black text-ink">Dataset 02</h3>
         </div>
+        <span class="rounded-full bg-white px-3 py-1 text-xs font-bold text-muted shadow-sm">XLSX</span>
       </div>
-    </section>
+      <p class="mt-3 text-sm leading-6 text-muted">
+        The dataset obtained by reverse engineering with a 3 mm diameter magnet.
+      </p>
+      <p class="mt-5 text-sm font-bold text-accent">Download →</p>
+    </a>
 
-    <section id="qa" class="section-card">
-      <div class="section-heading">
-        <h2>Q&A</h2>
-        <div class="title-line"></div>
+    <a href="data/Dofbot_pi4B_Benign_condition.xlsx" download="Dofbot_pi4B_Benign_condition.xlsx" class="download-card">
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <p class="text-xs font-bold uppercase tracking-wide text-accent">Dataset</p>
+          <h3 class="mt-2 text-lg font-black text-ink">Dataset 03</h3>
+        </div>
+        <span class="rounded-full bg-white px-3 py-1 text-xs font-bold text-muted shadow-sm">XLSX</span>
       </div>
+      <p class="mt-3 text-sm leading-6 text-muted">
+        Normal force readings during benign grasping of Dofbot-pi4B.
+      </p>
+      <p class="mt-5 text-sm font-bold text-accent">Download →</p>
+    </a>
 
-      <div class="divide-y divide-line">
-        <details class="group py-5" open>
-          <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-bold">
-            Which tactile sensors are affected by this vulnerability?
-            <span class="text-muted transition group-open:rotate-45">+</span>
-          </summary>
-          <p class="mt-3 leading-7 text-muted">
-            We evaluated products from two mainstream magnetic tactile sensor vendors, including XELA uSPa 46 and PaXini PX6AX-GEN3-MC-M2020-Elite, PX6AX-GEN3-IP-S1610-Elite, and PX6AX-GEN3-DP-S2015-Elite. All tested sensors are vulnerable to PhantomTac attacks.
-          </p>
-        </details>
-
-        <details class="group py-5">
-          <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-bold">
-            Can visual monitoring detect the deployed tags?
-            <span class="text-muted transition group-open:rotate-45">+</span>
-          </summary>
-          <p class="mt-3 leading-7 text-muted">
-            PhantomTac may introduce a slight protrusion because it deploys small magnets. In theory, existing visual inspection systems could detect such protrusions. However, deploying such a visual inspection system would be extremely costly.
-          </p>
-        </details>
-
-        <details class="group py-5">
-          <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-bold">
-            What consequences does PhantomTac cause?
-            <span class="text-muted transition group-open:rotate-45">+</span>
-          </summary>
-          <p class="mt-3 leading-7 text-muted">
-            PhantomTac can inject both normal or shear forces into magnetic tactile sensors, thereby hijacking tactile-feedback-based closed-loop force control in robots or robotic arms. This prevents the system from accurately interpreting contact forces and can lead to object damage. For example, the robot may continuously apply excessive pressure and crush the object, or it may start transporting the object before achieving a stable grasp, causing the object to be dropped and damaged.
-          </p>
-        </details>
-
-        <details class="group py-5">
-          <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-bold">
-            How to defend against PhantomTac?
-            <span class="text-muted transition group-open:rotate-45">+</span>
-          </summary>
-          <p class="mt-3 leading-7 text-muted">
-            A basic defense is to cross-check tactile readings with independent robot proprioceptive signals, such as joint torques, gripper motor currents, end-effector motion, and gripper velocity. Real contact should cause consistent changes across these signals. If the tactile sensor reports contact without corresponding motion or load changes, the system can flag it as false contact. Conversely, if proprioceptive signals indicate contact while tactile readings remain low, the system can stop further force increase or enter a safe recovery mode.
-          </p>
-        </details>
+    <a href="data/Dofbot_pi4B_Positive_normal_force_injection.xlsx" download="Dofbot_pi4B_Positive_normal_force_injection.xlsx" class="download-card">
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <p class="text-xs font-bold uppercase tracking-wide text-accent">Dataset</p>
+          <h3 class="mt-2 text-lg font-black text-ink">Dataset 04</h3>
+        </div>
+        <span class="rounded-full bg-white px-3 py-1 text-xs font-bold text-muted shadow-sm">XLSX</span>
       </div>
-    </section>
+      <p class="mt-3 text-sm leading-6 text-muted">
+        Normal force readings during positive normal-force injection (Dofbot-pi4B).
+      </p>
+      <p class="mt-5 text-sm font-bold text-accent">Download →</p>
+    </a>
 
-    <section id="datasets" class="section-card">
-      <div class="section-heading">
-        <h2>Datasets & source code</h2>
-        <div class="title-line"></div>
-        <p class="section-intro">
-          The following files are provided for artifact review. The usage is as follows:
-        </p>
-        
-        <ul class="scenario-list">
-        <li><strong>Dataset 01-02:</strong> The dataset collected through reverse engineering is used to plot spatial heatmaps for the three-dimensional forces (using MATLAB script). It is also applied to RBF data fitting (using Python script 01) and RBF model blind testing (using Python script 02).</li>
-        <li><strong>Dataset 03-05:</strong> Normal force data acquired in the end-to-end experiments of Dofbot-pi4B. Dataset 03, benign condition. Dataset 04, positive normal force injection. Dataset 05, negative normal force injection.</li>
-        <li><strong>Dataset 06-08:</strong> Normal force data acquired in the end-to-end experiments of Unitree G1. Dataset 06, benign condition. Dataset 07, positive normal force injection. Dataset 08, negative normal force injection.</li>
-        <li><strong>Python script 01:</strong> RBF data fitting source code. Construct the RBF model and generate a .pkl file (using Dataset 01–02).</li>
-        <li><strong>Python script 02:</strong> RBF model blind test source code. Construct the RBF model and perform blind testing to validate its effectiveness (using Dataset 01–02).</li>
-        <li><strong>Python script 03:</strong> Contour plot code for Fx, Fy and Fz based on the RBF model. Generate contour plots for Fx, Fy and Fz at arbitrary heights from 0 to 2 mm (using the .pkl file generated by Python Script 01).</li>
-        <li><strong>MATLAB script:</strong> Source code for plotting spatial heatmaps of three-dimensional forces (using Dataset 01–02).</li>
-        </ul>
-        
+    <a href="data/Dofbot_pi4B_Negative_normal_force_injection.xlsx" download="Dofbot_pi4B_Negative_normal_force_injection.xlsx" class="download-card">
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <p class="text-xs font-bold uppercase tracking-wide text-accent">Dataset</p>
+          <h3 class="mt-2 text-lg font-black text-ink">Dataset 05</h3>
+        </div>
+        <span class="rounded-full bg-white px-3 py-1 text-xs font-bold text-muted shadow-sm">XLSX</span>
       </div>
+      <p class="mt-3 text-sm leading-6 text-muted">
+        Normal force readings during negative normal-force injection (Dofbot-pi4B).
+      </p>
+      <p class="mt-5 text-sm font-bold text-accent">Download →</p>
+    </a>
 
-      <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-        <a href="data/Sensor_reverse_engineering_data_2.5mm.xlsx" download="Sensor_reverse_engineering_data_2.5mm.xlsx" class="download-card">
-          <div class="flex items-start justify-between gap-4">
-            <div>
-              <p class="text-xs font-bold uppercase tracking-wide text-accent">Dataset</p>
-              <h3 class="mt-2 text-lg font-black text-ink">Dataset 01</h3>
-            </div>
-            <span class="rounded-full bg-white px-3 py-1 text-xs font-bold text-muted shadow-sm">XLSX</span>
-          </div>
-          <p class="mt-3 text-sm leading-6 text-muted">
-            The dataset obtained by reverse engineering with a 2.5 mm diameter magnet.
-          </p>
-          <p class="mt-5 text-sm font-bold text-accent">Download →</p>
-        </a>
-
-        <a href="data/Sensor_reverse_engineering_data_3mm.xlsx" download="Sensor_reverse_engineering_data_3mm.xlsx" class="download-card">
-          <div class="flex items-start justify-between gap-4">
-            <div>
-              <p class="text-xs font-bold uppercase tracking-wide text-accent">Dataset</p>
-              <h3 class="mt-2 text-lg font-black text-ink">Dataset 02</h3>
-            </div>
-            <span class="rounded-full bg-white px-3 py-1 text-xs font-bold text-muted shadow-sm">XLSX</span>
-          </div>
-          <p class="mt-3 text-sm leading-6 text-muted">
-            The dataset obtained by reverse engineering with a 3 mm diameter magnet.
-          </p>
-          <p class="mt-5 text-sm font-bold text-accent">Download →</p>
-        </a>
-
-        <a href="data/Dofbot_pi4B_Benign_condition.xlsx" download="Dofbot_pi4B_Benign_condition.xlsx" class="download-card">
-          <div class="flex items-start justify-between gap-4">
-            <div>
-              <p class="text-xs font-bold uppercase tracking-wide text-accent">Dataset</p>
-              <h3 class="mt-2 text-lg font-black text-ink">Dataset 03</h3>
-            </div>
-            <span class="rounded-full bg-white px-3 py-1 text-xs font-bold text-muted shadow-sm">XLSX</span>
-          </div>
-          <p class="mt-3 text-sm leading-6 text-muted">
-            Normal force readings during benign grasping of Dofbot-pi4B.
-          </p>
-          <p class="mt-5 text-sm font-bold text-accent">Download →</p>
-        </a>
-
-        <a href="data/Dofbot_pi4B_Positive_normal_force_injection.xlsx" download="Dofbot_pi4B_Positive_normal_force_injection.xlsx" class="download-card">
-          <div class="flex items-start justify-between gap-4">
-            <div>
-              <p class="text-xs font-bold uppercase tracking-wide text-accent">Dataset</p>
-              <h3 class="mt-2 text-lg font-black text-ink">Dataset 04</h3>
-            </div>
-            <span class="rounded-full bg-white px-3 py-1 text-xs font-bold text-muted shadow-sm">XLSX</span>
-          </div>
-          <p class="mt-3 text-sm leading-6 text-muted">
-            Normal force readings during positive normal-force injection (Dofbot-pi4B).
-          </p>
-          <p class="mt-5 text-sm font-bold text-accent">Download →</p>
-        </a>
-
-        <a href="data/Dofbot_pi4B_Negative_normal_force_injection.xlsx" download="Dofbot_pi4B_Negative_normal_force_injection.xlsx" class="download-card">
-          <div class="flex items-start justify-between gap-4">
-            <div>
-              <p class="text-xs font-bold uppercase tracking-wide text-accent">Dataset</p>
-              <h3 class="mt-2 text-lg font-black text-ink">Dataset 05</h3>
-            </div>
-            <span class="rounded-full bg-white px-3 py-1 text-xs font-bold text-muted shadow-sm">XLSX</span>
-          </div>
-          <p class="mt-3 text-sm leading-6 text-muted">
-            Normal force readings during negative normal-force injection (Dofbot-pi4B).
-          </p>
-          <p class="mt-5 text-sm font-bold text-accent">Download →</p>
-        </a>
-
-        <a href="data/Unitree_G1_Benign_condition.xlsx" download="Unitree_G1_Benign_condition.xlsx" class="download-card">
-          <div class="flex items-start justify-between gap-4">
-            <div>
-              <p class="text-xs font-bold uppercase tracking-wide text-accent">Dataset</p>
-              <h3 class="mt-2 text-lg font-black text-ink">Dataset 06</h3>
-            </div>
-            <span class="rounded-full bg-white px-3 py-1 text-xs font-bold text-muted shadow-sm">XLSX</span>
-          </div>
-          <p class="mt-3 text-sm leading-6 text-muted">
-            Normal force readings of Unitree G1 during benign collision detection.
-          </p>
-          <p class="mt-5 text-sm font-bold text-accent">Download →</p>
-        </a>
-
-        <a href="data/Unitree_G1_Positive_normal_force_injection.xlsx" download="Unitree_G1_Positive_normal_force_injection.xlsx" class="download-card">
-          <div class="flex items-start justify-between gap-4">
-            <div>
-              <p class="text-xs font-bold uppercase tracking-wide text-accent">Dataset</p>
-              <h3 class="mt-2 text-lg font-black text-ink">Dataset 07</h3>
-            </div>
-            <span class="rounded-full bg-white px-3 py-1 text-xs font-bold text-muted shadow-sm">XLSX</span>
-          </div>
-          <p class="mt-3 text-sm leading-6 text-muted">
-            Normal force readings during positive normal-force injection (Unitree G1).
-          </p>
-          <p class="mt-5 text-sm font-bold text-accent">Download →</p>
-        </a>
-
-        <a href="data/Unitree_G1_Negative_normal_force_injection.xlsx" download="Unitree_G1_Negative_normal_force_injection.xlsx" class="download-card">
-          <div class="flex items-start justify-between gap-4">
-            <div>
-              <p class="text-xs font-bold uppercase tracking-wide text-accent">Dataset</p>
-              <h3 class="mt-2 text-lg font-black text-ink">Dataset 08</h3>
-            </div>
-            <span class="rounded-full bg-white px-3 py-1 text-xs font-bold text-muted shadow-sm">XLSX</span>
-          </div>
-          <p class="mt-3 text-sm leading-6 text-muted">
-            Normal force readings during negative normal-force injection (Unitree G1).
-          </p>
-          <p class="mt-5 text-sm font-bold text-accent">Download →</p>
-        </a>
-
-        <a href="src/RBF_fitting_code.py" download="RBF_fitting_code.py" class="download-card bg-white">
-          <div class="flex items-start justify-between gap-4">
-            <div>
-              <p class="text-xs font-bold uppercase tracking-wide text-accent">Source code</p>
-              <h3 class="mt-2 text-lg font-black text-ink">Python script 01</h3>
-            </div>
-            <span class="rounded-full bg-slate-100 px-3 py-1 text-xs font-bold text-muted">PY</span>
-          </div>
-          <p class="mt-3 text-sm leading-6 text-muted">
-            RBF data fitting source code.
-          </p>
-          <p class="mt-5 text-sm font-bold text-accent">Download →</p>
-        </a>
-
-        <a href="src/RBF_model_blind_test_code_v3.py" download="RBF_model_blind_test_code.py" class="download-card bg-white">
-          <div class="flex items-start justify-between gap-4">
-            <div>
-              <p class="text-xs font-bold uppercase tracking-wide text-accent">Source code</p>
-              <h3 class="mt-2 text-lg font-black text-ink">Python script 02</h3>
-            </div>
-            <span class="rounded-full bg-slate-100 px-3 py-1 text-xs font-bold text-muted">PY</span>
-          </div>
-          <p class="mt-3 text-sm leading-6 text-muted">
-            RBF model blind test source code.
-          </p>
-          <p class="mt-5 text-sm font-bold text-accent">Download →</p>
-        </a>
-
-        <a href="src/Contour_plot_code_for_Fx_Fy_Fz.py" download="Contour_plot_code_for_Fx_Fy_Fz.py" class="download-card bg-white">
-          <div class="flex items-start justify-between gap-4">
-            <div>
-              <p class="text-xs font-bold uppercase tracking-wide text-accent">Source code</p>
-              <h3 class="mt-2 text-lg font-black text-ink">Python script 03</h3>
-            </div>
-            <span class="rounded-full bg-slate-100 px-3 py-1 text-xs font-bold text-muted">PY</span>
-          </div>
-          <p class="mt-3 text-sm leading-6 text-muted">
-            Contour plot code for Fx, Fy and Fz based on the RBF model.
-          </p>
-          <p class="mt-5 text-sm font-bold text-accent">Download →</p>
-        </a>
-
-        <a href="src/Heatmap_drawing_code.m" download="Heatmap_drawing_code.m" class="download-card bg-white">
-          <div class="flex items-start justify-between gap-4">
-            <div>
-              <p class="text-xs font-bold uppercase tracking-wide text-accent">Source code</p>
-              <h3 class="mt-2 text-lg font-black text-ink">MATLAB script</h3>
-            </div>
-            <span class="rounded-full bg-slate-100 px-3 py-1 text-xs font-bold text-muted">M</span>
-          </div>
-          <p class="mt-3 text-sm leading-6 text-muted">
-            Source code for plotting spatial heatmaps of three-dimensional forces using the reverse engineering dataset.
-          </p>
-          <p class="mt-5 text-sm font-bold text-accent">Download →</p>
-        </a>
+    <a href="data/Unitree_G1_Benign_condition.xlsx" download="Unitree_G1_Benign_condition.xlsx" class="download-card">
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <p class="text-xs font-bold uppercase tracking-wide text-accent">Dataset</p>
+          <h3 class="mt-2 text-lg font-black text-ink">Dataset 06</h3>
+        </div>
+        <span class="rounded-full bg-white px-3 py-1 text-xs font-bold text-muted shadow-sm">XLSX</span>
       </div>
-    </section>
-  </main>
+      <p class="mt-3 text-sm leading-6 text-muted">
+        Normal force readings of Unitree G1 during benign collision detection.
+      </p>
+      <p class="mt-5 text-sm font-bold text-accent">Download →</p>
+    </a>
 
-  <footer class="border-t border-line bg-white">
-    <div class="mx-auto flex max-w-6xl flex-col gap-3 px-5 py-8 text-sm text-muted md:flex-row md:items-center md:justify-between">
-      <p>© Anonymous Author(s). For artifact review only.</p>
-    </div>
-  </footer>
-</body>
-</html>
+    <a href="data/Unitree_G1_Positive_normal_force_injection.xlsx" download="Unitree_G1_Positive_normal_force_injection.xlsx" class="download-card">
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <p class="text-xs font-bold uppercase tracking-wide text-accent">Dataset</p>
+          <h3 class="mt-2 text-lg font-black text-ink">Dataset 07</h3>
+        </div>
+        <span class="rounded-full bg-white px-3 py-1 text-xs font-bold text-muted shadow-sm">XLSX</span>
+      </div>
+      <p class="mt-3 text-sm leading-6 text-muted">
+        Normal force readings during positive normal-force injection (Unitree G1).
+      </p>
+      <p class="mt-5 text-sm font-bold text-accent">Download →</p>
+    </a>
+
+    <a href="data/Unitree_G1_Negative_normal_force_injection.xlsx" download="Unitree_G1_Negative_normal_force_injection.xlsx" class="download-card">
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <p class="text-xs font-bold uppercase tracking-wide text-accent">Dataset</p>
+          <h3 class="mt-2 text-lg font-black text-ink">Dataset 08</h3>
+        </div>
+        <span class="rounded-full bg-white px-3 py-1 text-xs font-bold text-muted shadow-sm">XLSX</span>
+      </div>
+      <p class="mt-3 text-sm leading-6 text-muted">
+        Normal force readings during negative normal-force injection (Unitree G1).
+      </p>
+      <p class="mt-5 text-sm font-bold text-accent">Download →</p>
+    </a>
+
+    <a href="src/RBF_fitting_code.py" download="RBF_fitting_code.py" class="download-card bg-white">
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <p class="text-xs font-bold uppercase tracking-wide text-accent">Source code</p>
+          <h3 class="mt-2 text-lg font-black text-ink">Python script 01</h3>
+        </div>
+        <span class="rounded-full bg-slate-100 px-3 py-1 text-xs font-bold text-muted">PY</span>
+      </div>
+      <p class="mt-3 text-sm leading-6 text-muted">
+        RBF data fitting source code.
+      </p>
+      <p class="mt-5 text-sm font-bold text-accent">Download →</p>
+    </a>
+
+    <a href="src/RBF_model_blind_test_code_v3.py" download="RBF_model_blind_test_code.py" class="download-card bg-white">
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <p class="text-xs font-bold uppercase tracking-wide text-accent">Source code</p>
+          <h3 class="mt-2 text-lg font-black text-ink">Python script 02</h3>
+        </div>
+        <span class="rounded-full bg-slate-100 px-3 py-1 text-xs font-bold text-muted">PY</span>
+      </div>
+      <p class="mt-3 text-sm leading-6 text-muted">
+        RBF model blind test source code.
+      </p>
+      <p class="mt-5 text-sm font-bold text-accent">Download →</p>
+    </a>
+
+    <a href="src/Contour_plot_code_for_Fx_Fy_Fz.py" download="Contour_plot_code_for_Fx_Fy_Fz.py" class="download-card bg-white">
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <p class="text-xs font-bold uppercase tracking-wide text-accent">Source code</p>
+          <h3 class="mt-2 text-lg font-black text-ink">Python script 03</h3>
+        </div>
+        <span class="rounded-full bg-slate-100 px-3 py-1 text-xs font-bold text-muted">PY</span>
+      </div>
+      <p class="mt-3 text-sm leading-6 text-muted">
+        Contour plot code for Fx, Fy and Fz based on the RBF model.
+      </p>
+      <p class="mt-5 text-sm font-bold text-accent">Download →</p>
+    </a>
+
+    <a href="src/Heatmap_drawing_code.m" download="Heatmap_drawing_code.m" class="download-card bg-white">
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <p class="text-xs font-bold uppercase tracking-wide text-accent">Source code</p>
+          <h3 class="mt-2 text-lg font-black text-ink">MATLAB script</h3>
+        </div>
+        <span class="rounded-full bg-slate-100 px-3 py-1 text-xs font-bold text-muted">M</span>
+      </div>
+      <p class="mt-3 text-sm leading-6 text-muted">
+        Source code for plotting spatial heatmaps of three-dimensional forces using the reverse engineering dataset.
+      </p>
+      <p class="mt-5 text-sm font-bold text-accent">Download →</p>
+    </a>
+  </div>
+</section>
