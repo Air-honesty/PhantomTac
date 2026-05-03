@@ -485,44 +485,48 @@
   </div>
 
   <div class="sensor-figure-grid">
-    <article class="sensor-figure-card">
-      <div class="sensor-figure-frame">
-        <img
-          src="figures/magnetic-tactile-structure.png?v=2"
-          alt="Magnetic tactile sensing principle"
-          class="sensor-figure"
-          onload="this.style.display='block'; this.nextElementSibling.style.display='none';"
-          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-        />
-        <div class="sensor-placeholder">
-          Structure image placeholder<br />
-          Upload to <strong>figures/magnetic-tactile-structure.png</strong>
-        </div>
-      </div>
-      <div class="sensor-figure-label">(a) The compressed and shear states characterize normal and shear forces, respectively.</div>
-    </article>
-
-    <article class="sensor-figure-card">
-      <div class="sensor-figure-frame">
-        <img
-          src="figures/magnetic-tactile-principle.png?v=2"
-          alt="Structure of a commercial magnetic tactile sensor"
-          class="sensor-figure"
-          onload="this.style.display='block'; this.nextElementSibling.style.display='none';"
-          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-        />
-        <div class="sensor-placeholder">
-          Principle image placeholder<br />
-          Upload to <strong>figures/magnetic-tactile-principle.png</strong>
-        </div>
-      </div>
-      <div class="sensor-figure-label">(b) Inside view of PaXini PX6AX-GEN3-MC-M2020-Elite.</div>
-    </article>
+    <article class="sensor-demo-card">
+  <div class="sensor-demo-video-frame">
+    <video
+      class="sensor-demo-video"
+      src="videos/magnetic-tactile-sensor-demo.mp4?v=4"
+      controls
+      preload="metadata"
+      onloadeddata="this.style.display='block'; this.nextElementSibling.style.display='none';"
+      onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+    ></video>
+    <div class="sensor-demo-placeholder">
+      Video placeholder<br />
+      Upload to <strong>videos/magnetic-tactile-sensor-demo.mp4</strong>
+    </div>
   </div>
+  <div class="sensor-demo-label">
+    Demonstration of magnetic tactile sensor responses during physical contact.
+  </div>
+</article>
 
-  <p class="sensor-caption">
-    Magnetic tactile sensors convert mechanical forces into measurable magnetic-field variations. As shown in Figure (a), a typical sensor consists of a flexible elastomer, an embedded magnet, and an underlying array of magnetometers. When external pressure is applied, the elastomer deforms under compression, bending, or shear, changing the relative position and pose between the magnet and the sensing units. These changes alter the local magnetic-field distribution. The measured magnetic signals are then mapped to tactile information, such as contact location, normal force, shear force, and slip.
-  </p>
+<article class="video-related-image-card">
+  <div class="video-related-image-frame">
+    <img
+      src="figures/magnetic-tactile-sensor-demo-image.png?v=1"
+      alt="Magnetic tactile sensor response during physical contact"
+      class="video-related-image"
+      onload="this.style.display='block'; this.nextElementSibling.style.display='none';"
+      onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+    />
+    <div class="video-related-image-placeholder">
+      Image placeholder<br />
+      Upload to <strong>figures/magnetic-tactile-sensor-demo-image.png</strong>
+    </div>
+  </div>
+  <div class="video-related-image-label">
+    Representative frames of magnetic tactile sensor responses during physical contact.
+  </div>
+</article>
+
+<p class="sensor-caption">
+  The demo video shows the real use of a magnetic tactile sensor (PX6AX-GEN3-MC-M2020-Elite). It demonstrates the real-time response to physical contact. When the sensor is pressed, the system reports force variations along multiple axes.
+</p>
 
   <div class="my-8 h-px bg-line"></div>
 
@@ -559,24 +563,28 @@
   </div>
 
   <article class="overview-figure-card">
-    <div class="overview-figure-frame">
-      <img
-        src="figures/phantomtac-attack-overview_v2.png"
-        alt="PhantomTac attack overview"
-        class="overview-figure"
-        onload="this.style.display='block'; this.nextElementSibling.style.display='none';"
-        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-      />
-      <div class="overview-placeholder">
-        Attack overview image placeholder<br />
-        Upload to <strong>figures/phantomtac-attack-overview_v2.png</strong>
-      </div>
+  <div class="demo-video-frame" style="aspect-ratio: 16 / 9;">
+    <video
+      class="demo-video"
+      src="videos/Phantomtac-deployment-demo.mp4?v=4"
+      controls
+      preload="metadata"
+      onloadeddata="this.style.display='block'; this.nextElementSibling.style.display='none';"
+      onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+    ></video>
+    <div class="demo-placeholder">
+      Video placeholder<br />
+      Upload to <strong>videos/Phantomtac-deployment-demo.mp4</strong>
     </div>
-  </article>
+  </div>
+  <div class="sensor-demo-label">
+    Demonstration of PhantomTac deployment.
+  </div>
+</article>
 
-  <p class="overview-caption">
-    <strong>PhantomTac uses a passive magnetic tag to perturb the magnetic field around a tactile sensor, thereby spoofing tactile feedback and hijacking closed-loop robotic manipulation.</strong>
-  </p>
+<p class="overview-caption">
+  The demo video shows the camouflage surface, the miniature magnet-array surface, the side view, and a close-up view of PhantomTac after deployment. The camouflage surface can take the form of common stickers, such as a QR code, blank paper, a shipping label, or a cartoon sticker. The magnet-array surface is used to arrange miniature magnets to generate a specific magnetic field and inject targeted spoofed forces. The side view shows that PhantomTac can be as thin as a piece of paper. In the close-up view after deployment, PhantomTac does not introduce an obvious protrusion and appears similar to a normal sticker. These properties make PhantomTac highly easy to disguise and deploy.
+</p>
 
   <ul class="scenario-list">
     <li><strong>Crushing:</strong> PhantomTac injects a negative normal force, delaying the tactile sensor’s reported force from reaching the predefined grasping threshold. As a result, the object is continuously squeezed and eventually damaged.</li>
