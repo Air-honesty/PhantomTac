@@ -1,7 +1,10 @@
 # PhantomTac project website
 
-The website entry point is `index.html`. It is a static site with local CSS and
-JavaScript in `assets/`; no package installation or build step is required.
+The website entry point is `index.html`. It follows the original single-page layout, with inline CSS and the original
+Tailwind CDN dependency. No package installation or build step is required.
+Author information appears below the title; the Citation section follows
+the original datasets section. The earlier `assets/site.css` and
+`assets/site.js` redesign files are not loaded by this page.
 
 ## Preview locally
 
@@ -40,9 +43,10 @@ The repository visibility is not changed by the website files. See the
 - `assets/posters/` contains still frames from the demonstration videos.
 - `assets/downloads/` contains ZIP archives of the original datasets and
   source files. Regenerate these archives if the originals change later.
-- Video controls, resource downloads, and FAQ disclosures work without
-  JavaScript. JavaScript adds platform tabs, mobile navigation, and pauses
-  other videos when playback starts.
+- The original navigation, section order, figure layout, six-video grid,
+  FAQ disclosures, and individual resource cards are retained.
+- A small inline script adds citation copying; the `.bib` download remains
+  available independently of clipboard access.
 
 Author names, affiliations, contact addresses, the abstract, conference metadata,
 DOI, and the citation are based on the camera-ready title-page image supplied
