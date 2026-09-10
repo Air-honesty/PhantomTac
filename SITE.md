@@ -37,12 +37,12 @@ The repository visibility is not changed by the website files. See the
 
 ## Content and assets
 
-- `src/`, `data/`, `figures/`, and `videos/` retain their original files.
+- `src/`, `figures/`, and `videos/` retain their original files. The original
+  Excel datasets are intentionally not distributed.
 - `assets/media/` contains additional H.264/AAC MP4 copies for web playback,
   with the MP4 index at the beginning of each file for streaming.
 - `assets/posters/` contains still frames from the demonstration videos.
-- `assets/downloads/` contains ZIP archives of the original datasets and
-  source files. Regenerate these archives if the originals change later.
+- `assets/downloads/` contains the source-code ZIP and BibTeX citation.
 - The original navigation, section order, figure layout, six-video grid,
   FAQ disclosures, and individual resource cards are retained.
 - A small inline script adds citation copying; the `.bib` download remains
