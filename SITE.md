@@ -3,8 +3,7 @@
 The website entry point is `index.html`. It follows the original single-page layout, with inline CSS and the original
 Tailwind CDN dependency. No package installation or build step is required.
 Author information appears below the title; the Citation section follows
-the original datasets section. The earlier `assets/site.css` and
-`assets/site.js` redesign files are not loaded by this page.
+the source-code section.
 
 ## Preview locally
 
@@ -21,28 +20,17 @@ Open `http://localhost:8000/`. The page also supports hosting beneath the
 
 The intended project URL is `https://air-honesty.github.io/PhantomTac/`.
 
-A repository owner or maintainer must enable Pages in **Settings → Pages**:
-
-1. Under **Build and deployment**, choose **Deploy from a branch**.
-2. Select **main** and **/ (root)**, then save.
-3. Wait for the Pages deployment to finish, then open the published URL.
-
-The `.nojekyll` file allows the static assets to be served without Jekyll
-processing. Subsequent pushes to `main` update the website automatically.
-
-GitHub Free supports Pages for public repositories. Publishing from this
-private personal repository requires an eligible plan such as GitHub Pro.
-The repository visibility is not changed by the website files. See the
-[GitHub Pages publishing documentation](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site).
+The repository is published through GitHub Actions. The workflow in
+`.github/workflows/deploy-pages.yml` deploys the repository contents after
+each push to `main`.
 
 ## Content and assets
 
-- `src/`, `figures/`, and `videos/` retain their original files. The original
-  Excel datasets are intentionally not distributed.
-- `assets/media/` contains additional H.264/AAC MP4 copies for web playback,
-  with the MP4 index at the beginning of each file for streaming.
-- `assets/posters/` contains still frames from the demonstration videos.
-- `assets/downloads/` contains the source-code ZIP and BibTeX citation.
+- `src/` contains the four source files linked by the website.
+- `figures/` contains the three images displayed by the website.
+- `assets/media/` contains H.264/AAC MP4 videos for browser playback, with
+  the MP4 index at the beginning of each file for streaming.
+- `assets/downloads/` contains the BibTeX citation.
 - The original navigation, section order, figure layout, six-video grid,
   FAQ disclosures, and individual resource cards are retained.
 - A small inline script adds citation copying; the `.bib` download remains
