@@ -18,7 +18,8 @@ Open `http://localhost:8000/`. The page also supports hosting beneath the
 
 ## Publish with GitHub Pages
 
-The intended project URL is `https://air-honesty.github.io/PhantomTac/`.
+The project is intended to be available at `https://phantomtac.org/` once the
+GitHub Pages custom-domain configuration and DNS records are active.
 
 The repository is published through GitHub Actions. The workflow in
 `.github/workflows/deploy-pages.yml` deploys the repository contents after
