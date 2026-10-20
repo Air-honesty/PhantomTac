@@ -432,8 +432,9 @@
     .paper-corresponding { margin-top: 0.5rem; font-size: 0.875rem; color: #64748b; }
     .paper-venue { margin-top: 1.25rem; color: #0f172a; font-weight: 600; }
     .citation-reference { color: #475569; line-height: 1.8; }
-    .citation-doi { display: inline-block; margin-top: 1rem; color: #2563eb; overflow-wrap: anywhere; }
-    .citation-doi:hover { text-decoration: underline; }
+    .citation-links { display: flex; flex-direction: column; align-items: flex-start; gap: 0.35rem; margin-top: 1rem; }
+    .citation-link { color: #2563eb; overflow-wrap: anywhere; }
+    .citation-link:hover { text-decoration: underline; }
     .citation-code { margin-top: 1.5rem; border: 1px solid #e2e8f0; border-radius: 1rem; overflow: hidden; }
     .citation-toolbar { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 1rem; background: #f8fafc; border-bottom: 1px solid #e2e8f0; font-size: 0.875rem; }
     .citation-tools { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; }
@@ -878,7 +879,10 @@
         In <em>Proceedings of the 2026 ACM SIGSAC Conference on Computer and Communications Security (CCS ’26)</em>,
         November 15–19, 2026, The Hague, Netherlands. ACM, New York, NY, USA, 15 pages.
       </p>
-      <a class="citation-doi" href="https://doi.org/10.1145/3830454.3846657">DOI: 10.1145/3830454.3846657</a>
+      <div class="citation-links">
+        <a class="citation-link" href="https://arxiv.org/html/2610.26174">arXiv: 2610.26174</a>
+        <a class="citation-link" href="https://doi.org/10.1145/3830454.3846657">DOI: 10.1145/3830454.3846657</a>
+      </div>
       <div class="citation-code">
         <div class="citation-toolbar">
           <span>BibTeX</span>
